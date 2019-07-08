@@ -1,3 +1,19 @@
+<?php
+
+/* @var $this \yii\web\View */
+/* @var $content string */
+
+use yii\helpers\Html;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
+use yii\widgets\Breadcrumbs;
+use frontend\assets\AppAsset;
+use common\widgets\Alert;
+use frontend\widgets\chat\ChatWidget;
+
+AppAsset::register($this);
+?>
+<?php $this->beginPage() ?>
 <!doctype html>
 <html lang="zh">
 <head>
@@ -67,6 +83,7 @@ $(document).ready(function(){
         <a class="js-scroll-trigger" href="#team">关于团队</a>
       </li>
     </ul>
+      
   </nav>
 
   <!-- Header -->
@@ -83,6 +100,9 @@ $(document).ready(function(){
   </header>
 
   <!-- About -->
+  
+
+
   <!-- Services -->
   <section  id="count">
     <br>
@@ -107,11 +127,6 @@ $(document).ready(function(){
   });
   </script>
   </section>
-
-  <section id="comment">
-    
-  </section>
-
 
   <section class="content-section bg-primary text-white text-center" id="services">
     <div class="container">
