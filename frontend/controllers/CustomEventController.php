@@ -2,23 +2,18 @@
 
 namespace frontend\controllers;
 
-use common\models\Participation;
-use common\models\InstitutionEvent;
 use Yii;
-use common\models\StudentEvent;
-use frontend\models\StudentEventSearch;
+use common\models\CustomEvent;
+use frontend\models\CustomEventSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\helpers\Json;
 
 /**
- * StudentEventController implements the CRUD actions for StudentEvent model.
+ * CustomEventController implements the CRUD actions for CustomEvent model.
  */
-class StudentEventController extends Controller
+class CustomEventController extends Controller
 {
-    public $colors = array(0=>'#2ae0c8', 1=>'#cbf5fb', 2=>'#bdf3d4', 3=>'#e6e2c3',
-        4=>'#e3c887', 5=>'#fad8be', 6=>'#fbb8ac', 7=>'#fe6673');
     /**
      * {@inheritdoc}
      */
@@ -35,12 +30,12 @@ class StudentEventController extends Controller
     }
 
     /**
-     * Lists all StudentEvent models.
+     * Lists all CustomEvent models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new StudentEventSearch();
+        $searchModel = new CustomEventSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -49,49 +44,8 @@ class StudentEventController extends Controller
         ]);
     }
 
-
-    public function actionJsonCalendar($start=NULL,$end=NULL,$_=NULL){
-        $user = Yii::$app->user;
-        if ($user->isGuest)
-            return;
-
-        $userid = $user->id;
-
-        $c_participations = Participation::findAll(['user_id' => $userid]);
-
-        $pevents = StudentEvent::findAll(['ev_userid' => $userid]);
-
-        $events = array();
-        foreach ($c_participations as $c)
-        {
-            $cevent = InstitutionEvent::findOne(['ev_id' => $c->ev_id]);
-            $Event = new \yii2fullcalendar\models\Event();
-            $Event->id = $cevent->ev_id;
-            $Event->title = $cevent->ev_name;
-            $Event->start = $cevent->ev_time;
-            $Event->color = $this->colors[rand(0,7)];
-            $Event->allDay = $cevent->all_day;
-            $events[] = $Event;
-        }
-
-        foreach ($pevents as $p)
-        {
-            $Event = new \yii2fullcalendar\models\Event();
-            $Event->id = $p->ev_id;
-            $Event->title = $p->ev_name;
-            $Event->start = $p->ev_time;
-            $Event->color = $this->colors[$p->ev_color];
-            $Event->allDay = $p->all_day;
-            $events[] = $Event;
-        }
-
-        header('Content-type: application/json');
-        echo Json::encode($events);
-        Yii::$app->end();
-    }
-
     /**
-     * Displays a single StudentEvent model.
+     * Displays a single CustomEvent model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -104,24 +58,21 @@ class StudentEventController extends Controller
     }
 
     /**
-     * Creates a new StudentEvent model.
+     * Creates a new CustomEvent model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($date = null)
+    public function actionCreate()
     {
         $user = Yii::$app->user->identity;
         if(!$user)
         {
             return null;
         }
-        $model = new StudentEvent();
-
-        if($date != null)
-            $model->ev_time = $date.' 06-00-00';
+        $model = new CustomEvent();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['/site/index']);
+            return $this->redirect(['/site/main']);
         }
 
         return $this->renderAjax('create', [
@@ -130,7 +81,7 @@ class StudentEventController extends Controller
     }
 
     /**
-     * Updates an existing StudentEvent model.
+     * Updates an existing CustomEvent model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -149,6 +100,13 @@ class StudentEventController extends Controller
         ]);
     }
 
+    /**
+     * Deletes an existing CustomEvent model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
@@ -157,15 +115,15 @@ class StudentEventController extends Controller
     }
 
     /**
-     * Finds the StudentEvent model based on its primary key value.
+     * Finds the CustomEvent model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return StudentEvent the loaded model
+     * @return CustomEvent the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = StudentEvent::findOne($id)) !== null) {
+        if (($model = CustomEvent::findOne($id)) !== null) {
             return $model;
         }
 

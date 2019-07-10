@@ -18,6 +18,7 @@ $DragJS = <<<EOF
 $('#external-events .fc-event').each(function() {
     // store data so the calendar knows to render an event upon drop
     $(this).data('event', {
+        id : $(this).attr("eventid"),
         title: $.trim($(this).text()), // use the element's text as the event title
         stick: true // maintain when user navigates (see docs on the renderEvent method)
     });
@@ -71,6 +72,8 @@ function(date) {
         // if so, remove the element from the "Draggable Events" list
         $(this).remove();
     }
+    
+    //由 CustomEvent => StudentEvent
 }
 EOF;
 
@@ -140,23 +143,6 @@ EOF;
 
 <footer class="footer text-center">
                 <div class="container">
-                    <ul class="list-inline mb-5">
-                        <li class="list-inline-item">
-                            <a class="social-link rounded-circle text-white mr-3" href="#">
-                                <i class="icon-social-facebook"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="social-link rounded-circle text-white mr-3" href="#">
-                                <i class="icon-social-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="social-link rounded-circle text-white" href="#">
-                                <i class="icon-social-github"></i>
-                            </a>
-                        </li>
-                    </ul>
                     <p class="text-muted small mb-0">Copyright &copy; Your Website 2019</p>
                 </div>
             </footer>

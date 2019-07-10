@@ -16,6 +16,7 @@ use Yii;
  * @property string $ev_description
  * @property int $ev_color
  * @property int $ev_status
+ * @property boolean $all_day
  *
  * @property Operation2[] $operation2s
  */

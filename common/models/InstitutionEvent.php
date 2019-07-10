@@ -15,7 +15,7 @@ use Yii;
  * @property int $ev_number
  * @property int $cev_tid
  * @property int $ev_maxnumber
- *
+ * @property boolean $all_day
  * @property Admin $evAdmin
  * @property Teacher $cevT
  * @property Operation1[] $operation1s
