@@ -67,6 +67,7 @@ class StudentEventController extends Controller
             $cevent = InstitutionEvent::findOne(['ev_id' => $c->ev_id]);
             $Event = new \yii2fullcalendar\models\Event();
             $Event->id = $cevent->ev_id;
+            $Event->className = 'inst-event';
             $Event->title = $cevent->ev_name;
             $Event->start = $cevent->ev_time;
             $Event->color = $this->colors[rand(0,7)];
@@ -78,6 +79,7 @@ class StudentEventController extends Controller
         {
             $Event = new \yii2fullcalendar\models\Event();
             $Event->id = $p->ev_id;
+            $Event->className = 'stu-event';
             $Event->title = $p->ev_name;
             $Event->start = $p->ev_time;
             $Event->end = $p->ev_end;
@@ -142,6 +144,7 @@ class StudentEventController extends Controller
         $model->ev_userid = $user->getId();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success','创建成功');
             return $this->redirect(['/site/main']);
         }
 
@@ -162,6 +165,8 @@ class StudentEventController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success','修改成功');
+//            return 'true';
             return $this->redirect(['/site/main']);
         }
 

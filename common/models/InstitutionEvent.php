@@ -52,14 +52,16 @@ class InstitutionEvent extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ev_id' => 'Ev ID',
-            'ev_time' => 'Ev Time',
-            'ev_name' => 'Ev Name',
-            'ev_adminid' => 'Ev Adminid',
-            'ev_place' => 'Ev Place',
-            'ev_number' => 'Ev Number',
-            'cev_tid' => 'Cev Tid',
-            'ev_maxnumber' => 'Ev Maxnumber',
+            'ev_id' => '活动Id',
+            'ev_time' => '活动开始时间',
+            'ev_name' => '活动名称',
+            'ev_adminid' => '活动所属学院id',
+            'ev_place' => '活动地点',
+            'ev_number' => '当前参与人数',
+            'cev_tid' => '活动管理员id',
+            'ev_maxnumber' => '活动人数上限',
+//            'ev_adminname' => '管理员姓名', //TODO
+            'all_day' => '是否为全天活动',
         ];
     }
 

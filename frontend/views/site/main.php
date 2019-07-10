@@ -83,6 +83,7 @@ EOF;
 
         $JSEventClick = <<<EOF
 function(calEvent, jsEvent, view) {
+        console.log(calEvent.className[0]);
       console.log(calEvent);
       console.log(jsEvent);
       console.log(view);
@@ -92,10 +93,17 @@ function(calEvent, jsEvent, view) {
 
     // change the border color just for fun
 //    $(this).css('border-color', 'red');
-    
-    $('#modal').modal('show')
-    .find('#modalContent')
-    .load('index.php?r=student-event/update&id='+calEvent.id);
+       if(calEvent.className.indexOf('inst-event') < 0){
+            $('#modal').modal('show')
+            .find('#modalContent')
+            .load('index.php?r=student-event/update&id='+calEvent.id);
+       } else {
+            $('#modal').modal('show')
+            .find('#modalContent')
+            .load('index.php?r=institution-event/view&id='+calEvent.id);
+
+       }
+               
 
 }
 
