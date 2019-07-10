@@ -24,7 +24,6 @@ class SiteController extends Controller
     /**
      * {@inheritdoc}
      */
-    public $layout = false;
     
     /**
      * 留言添加
@@ -93,6 +92,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = false;
         return $this->render('index');
     }
 

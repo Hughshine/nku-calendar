@@ -1,19 +1,3 @@
-<?php
-
-/* @var $this \yii\web\View */
-/* @var $content string */
-
-use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
-use frontend\assets\AppAsset;
-use common\widgets\Alert;
-
-
-AppAsset::register($this);
-?>
-<?php $this->beginPage()  ?>
 <!doctype html>
 <html lang="zh">
 <head>
@@ -36,11 +20,10 @@ $(document).ready(function(){
   $("#button_1").show(10);
 });
 </script>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="css/jquery.classycountdown.css" />
-    <link href="css/nav_style.css" rel="stylesheet">
-    <link href="css/bootstrapmin.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/reset.css">
+
+<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.classycountdown.css" />
 
 <style>
 	.ClassyCountdownDemo { margin:0 auto 30px auto; max-width:800px; width:calc(100%); padding:30px; display:block }
@@ -70,86 +53,49 @@ $(document).ready(function(){
   <link href="css/stylish-portfolio.min.css" rel="stylesheet">
 </head>
 <body id="page-top">
-<?php $this->beginBody() ?>
+
+	 <a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="#page-top">百年南开·再铸辉煌</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#page-top">回到顶层</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#count">倒计时</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#comment">评论留言</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#services">提供服务</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#team">关于团队</a>
+      </li>
+    </ul>
+  </nav>
 
   <!-- Header -->
   <header class="masthead d-flex">
     <div class="container text-center my-auto">
       <h1 class="mb-1"><img id="100banner" src="img/100banner1.png" alt=""></h1>
       <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
       <h3 id="title_1" class="mb-5">
-        <!-- 南开大学百年校庆主题活动管理服务 -->
+        南开大学百年校庆主题活动管理服务
       </h3>
-      <!-- <a class="btn btn-primary btn-xl js-scroll-trigger" id="button_1" href="#count" style="background-color: rgb(128, 29, 174); display: inline-block;">继续了解！</a> -->
-      <br>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" id="button_1" href="#count" style="background-color: rgb(128, 29, 174); display: inline-block;">继续了解！</a>
     </div>
     <div class="overlay"></div>
   </header>
 
-  <!-- Nav -->
-  <div id="topNav">
-      <div class="container" style="padding-left:0px;padding-right:0px;">
-          <!-- Mobile Menu Button -->
-          <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
-              <i class="fa fa-bars"></i>
-          </button>
-          <!-- Top Nav -->
-          <div>
-              <div class="navbar-collapse nav-main-collapse collapse" frag="面板102">
-                  <nav class="nav-main">
-                      <ul id="topMain" class="nav nav-pills nav-main" style="text-align:center;">
-                          <li class="mega-menu logo-menu" frag="窗口10200">
-                              <a style="position: absolute;top: -52px;"><img src="img/nk100logowhite.png" style="width:150px"></a>
-                              <!-- No Data -->
-                          </li>
-                          <?php
-                          if (Yii::$app->user->isGuest) {
-                          $menuItems[] = ['label' => '注册', 'url' => ['/site/signup']];
-                          $menuItems[] = ['label' => '登录', 'url' => ['/site/login']];
-                          } else {
-                          $menuItems[] = '<li>'
-                              . Html::beginForm(['/site/logout'], 'post')
-                              . Html::submitButton(
-                              '注销(' . Yii::$app->user->identity->username . ')',
-                              ['class' => 'btn btn-link logout']
-                              )
-                              . Html::endForm()
-                              . '</li>';
-                          }
-                          ?>
-                          <li class="mega-menu   mega-menu-right1" frag="窗口10205">
-                              <a class="js-scroll-trigger" href="index.php?r=site/login">登录</a>
-                          </li>
-                          <li class="mega-menu  active" frag="窗口10201">
-                              <a class="js-scroll-trigger" href="#page-top">首页</a>
-                          </li>
-                          <li class="mega-menu" frag="窗口10202">
-                              <a class="js-scroll-trigger" href="#count">倒计时</a>
-                          </li>
-                          <li class="mega-menu" frag="窗口10203">
-                              <a class="js-scroll-trigger" href="#comment">祝福南开</a>
-                          </li>
-                          <li class="mega-menu" frag="窗口10204">
-                              <a href="/nkrw/list.htm">人物南开</a>
-                          </li>
-                          <li class="mega-menu" frag="窗口10206">
-                              <a href="http://100.nankai.edu.cn/2018/1128/c10887a115520/page.htm">感恩南开</a>
-                          </li>
-                      </ul>
-                  </nav>
-              </div>
-          </div>
-          <!-- /Top Nav -->
-      </div><!-- /.container -->
-  </div>
+  <!-- About -->
   <!-- Services -->
+  <!-- style="background:url('img/colorbg_f.jpg')" -->
   <section id="count" class="blue">
      <!-- style="background:rgb(238,130,238);" -->
     <div class="row">
@@ -360,11 +306,12 @@ $(document).ready(function(){
     
   </section>
 
+
   <section class="content-section bg-primary text-white text-center" id="services">
     <div class="container">
       <div class="content-section-heading">
         <h3 class="text-secondary mb-0">服务</h3>
-        <h2 class="mb-5">南开大学百年校庆主题活动管理服务</h2>
+        <h2 class="mb-5">我们可以提供</h2>
       </div>
       <div class="row">
         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
@@ -408,7 +355,6 @@ $(document).ready(function(){
       </div>
     </div>
   </section>
-
 
   <!-- Callout -->
  <!--  <section class="callout">
@@ -508,6 +454,6 @@ $(document).ready(function(){
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
   <script src="js/stylish-portfolio.min.js"></script>
-<?php $this->endBody() ?>
+
 </body>
 </html>
