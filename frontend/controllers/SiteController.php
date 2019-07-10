@@ -109,7 +109,7 @@ class SiteController extends Controller
 
     public function actionMain()
     {
-        $this->layout = true;
+        $this->layout = 'main';
         if (Yii::$app->user->isGuest)
         {
             return $this->redirect('index.php?r=site%2Flogin');
@@ -128,17 +128,18 @@ class SiteController extends Controller
     public function actionLogin()
     {
         $this->layout='main-login';
-        $this->layout = true;
         if (!Yii::$app->user->isGuest) {
-            return $this->render('main');
+            $this->layout='main';
+            return $this->redirect('index.php?r=site%2Fmain');
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            $this->layout='main';
+            return $this->redirect('index.php?r=site%2Fmain');
         } else {
             $model->password = '';
-
+            $this->layout='main-login';
             return $this->render('login', [
                 'model' => $model,
             ]);

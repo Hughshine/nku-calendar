@@ -34,16 +34,7 @@ EOF;
 $this->registerJs($DragJS);
 
 ?>
-
-<?php $this->beginPage()  ?>
-
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-<script src='js/jquery.js'></script>
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.knob.js"></script>
-<script src="js/jquery.throttle.js"></script>
-<script src="js/jquery.classycountdown.js"></script>
-<script src="js/index.js"></script>
 <?=$this->registerJsFile("./main.js"); ?>
 <div class="site-index">
     <div class="body-content">
@@ -178,6 +169,6 @@ EOF;
             <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
             <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
             <script src="js/stylish-portfolio.min.js"></script>
-<?php $this->endBody() ?>
+<?php //$this->endBody() ?>
 
 
