@@ -8,7 +8,11 @@ use frontend\widgets\CustomEventsWidget;
 
 /* @var $this yii\web\View */
 $this->title = '我的日程';
-
+/*
+TODO: 剩余的三个功能：
+TODO: 1. 点击日程里的活动，进行update  2. 拖拽custom-event，添加student-event
+TODO: 3. 点击日历直接触发活动创建modal 4. calendar内的拖拽应有效
+ */
 
 
 $DragJS = <<<EOF
@@ -41,7 +45,7 @@ $this->registerJs($DragJS);
     <div class="body-content">
         <?php
         Modal::begin([
-            'header' => '<h4>Branch</h4>',
+            'header' => 'NKU 100days',
             'id' => 'modal',
             'size' => 'modal-lg',
         ]);
@@ -79,17 +83,45 @@ EOF;
 
         $JSEventClick = <<<EOF
 function(calEvent, jsEvent, view) {
-
-    alert('Event: ' + calEvent.title);
-    alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-    alert('View: ' + view.name);
+      console.log(calEvent);
+      console.log(jsEvent);
+      console.log(view);
+//    alert('Event: ' + calEvent.title);
+//    alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+//    alert('View: ' + view.name);
 
     // change the border color just for fun
-    $(this).css('border-color', 'red');
+//    $(this).css('border-color', 'red');
+    
+    $('#modal').modal('show')
+    .find('#modalContent')
+    .load('index.php?r=student-event/update&id='+calEvent.id);
 
 }
 
 EOF;
+        $dayClick = <<<EOF
+function(date, allDay, jsEvent, view) { //TODO: how to know allday event
+//        var year = date.toDate().getFullYear();
+//        var month = date.getMonth();
+//        var day = date.getDay();
+//        var ALLDAY = allDay;
+//        console.log(allDay);
+//        console.log(jsEvent);
+//        console.log(view);
+        var hour = (date.toDate().getHours()+16)%24;
+        var minute = date.toDate().getMinutes();
+        
+        var date = $(this).attr('data-date');
+
+        $('#modal').modal('show')
+            .find('#modalContent')
+            .load('index.php?r=student-event/create&date='+date+'&hour='+hour+'&minute='+minute+'&allday=false');
+            
+            //'+year+'-'+month+'-'+day
+    }
+EOF;
+
 
         ?>
         <style>
@@ -128,6 +160,8 @@ EOF;
                         'droppable' => true,
                         'editable' => true,
                         'drop' => new JsExpression($JSDropEvent),
+                        'firstDay' => 7,
+                        'dayClick'=> new JsExpression($dayClick),
 //                    'select' => new JsExpression($JSCode),
                         'eventClick' => new JsExpression($JSEventClick),
                         'defaultDate' => date('Y-m-d')

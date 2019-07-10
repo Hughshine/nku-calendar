@@ -80,6 +80,7 @@ class StudentEventController extends Controller
             $Event->id = $p->ev_id;
             $Event->title = $p->ev_name;
             $Event->start = $p->ev_time;
+            $Event->end = $p->ev_end;
             $Event->color = $this->colors[$p->ev_color];
             $Event->allDay = $p->all_day;
             $events[] = $Event;
@@ -108,7 +109,7 @@ class StudentEventController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($date = null)
+    public function actionCreate($date = null, $hour = '06', $minute = '00', $allday=false)
     {
         $user = Yii::$app->user->identity;
         if(!$user)
@@ -116,12 +117,32 @@ class StudentEventController extends Controller
             return null;
         }
         $model = new StudentEvent();
-
+        $end_hour = (int)$hour + 1;
         if($date != null)
-            $model->ev_time = $date.' 06-00-00';
+        {
+            if (strlen($hour)<2) {
+                $hour = '0' . $hour;
+
+            }
+            if (strlen($minute)<2)
+                $minute= '0'.$minute;
+
+            if($end_hour < 10) {
+                $end_hour = '0'.$end_hour;
+            }
+
+            $end_date = $date.' '.$end_hour.':'.$minute;
+
+            $date = $date.' '.$hour.':'.$minute;
+            $model->ev_time = $date;
+            $model->ev_end = $end_date;
+        }
+
+
+        $model->ev_userid = $user->getId();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['/site/index']);
+            return $this->redirect(['/site/main']);
         }
 
         return $this->renderAjax('create', [
@@ -141,10 +162,10 @@ class StudentEventController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ev_id]);
+            return $this->redirect(['/site/main']);
         }
 
-        return $this->render('update', [
+        return $this->renderAjax('update', [
             'model' => $model,
         ]);
     }

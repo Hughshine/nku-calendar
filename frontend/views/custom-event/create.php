@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\CustomEvent */
 
-$this->title = 'Create Custom Event';
-$this->params['breadcrumbs'][] = ['label' => 'Custom Events', 'url' => ['index']];
+$this->title = '创建新的日常活动';
+$this->params['breadcrumbs'][] = ['label' => '日常活动', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="custom-event-create">

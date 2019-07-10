@@ -30,7 +30,7 @@ class CustomEvent extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ev_id', 'ev_name', 'ev_userid'], 'required'],
+            [['ev_name', 'ev_userid'], 'required'],
             [['ev_id', 'ev_userid', 'ev_color'], 'integer'],
             [['ev_name'], 'string', 'max' => 128],
             [['ev_description', 'ev_place'], 'string', 'max' => 1024],
@@ -44,12 +44,12 @@ class CustomEvent extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ev_id' => 'Ev ID',
-            'ev_name' => 'Ev Name',
-            'ev_userid' => 'Ev Userid',
-            'ev_color' => 'Ev Color',
-            'ev_description' => 'Ev Description',
-            'ev_place' => 'Ev Place',
+            'ev_id' => '活动ID',
+            'ev_name' => '活动名称',
+            'ev_userid' => '所属用户',
+            'ev_color' => '活动颜色',
+            'ev_description' => '活动描述',
+            'ev_place' => '活动地点',
         ];
     }
 }

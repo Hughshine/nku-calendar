@@ -71,8 +71,13 @@ class CustomEventController extends Controller
         }
         $model = new CustomEvent();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['/site/main']);
+        if ($model->load(Yii::$app->request->post()) ) {
+            $model->ev_userid = $user->getId();
+            if($model->save())
+            {
+                return $this->redirect(['/site/main']);
+            }
+            return '<div>wrong</div>';
         }
 
         return $this->renderAjax('create', [
