@@ -1,0 +1,7 @@
+1.0版本于2019.7.6生成；
+2.0版本于2019.7.7修改生成，
+①将user表修改为yii试用的user表
+②将student,teacher,admin修改为user表的子表，修改为ER模式
+③将操作1，操作2表修改为operation1,operation2，添加了op1_id并设为主键
+④在cevent,pevent表中增加了ev_maxnumber
+⑤修改了部分不可置null的属性

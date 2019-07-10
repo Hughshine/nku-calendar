@@ -6,7 +6,7 @@ $(function () {
 
         $('#modal').modal('show')
             .find('#modalContent')
-            .load('index.php?r=student-event/create&date='+'\'00-00-01\'');
+            .load('index.php?r=student-event/create&date=\''+date+'T00-00-01\'');
 
         // $.get('index.php?r=student-event/create&date='+date+' 00-00-01', function(){
         //     $('#modal').modal('show')

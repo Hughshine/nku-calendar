@@ -15,12 +15,8 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
-use common\models\User;
-use common\models\CustomEvent;
-use common\models\Participation;
-use common\models\StudentEvent;
-use \DateTime;
 use yii\helpers\Json;
+use frontend\models\FeedForm;
 
 /**
  * Site controller
@@ -32,6 +28,23 @@ class SiteController extends Controller
     /**
      * {@inheritdoc}
      */
+    
+    /**
+     * 留言添加
+     */
+    public function actionAddFeed()
+    {
+        $model=new FeedsForm();
+        $model->content=Yii::$app->request->post('content');
+        if ($model->validate()){
+            if ($model->create()){
+                return json_encode(['status'=>true]);
+            }
+        }
+     
+        return json_encode(['status'=>false,'msg'=>'留言发布失败']);
+    }
+
     public function behaviors()
     {
         return [
@@ -90,11 +103,19 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = false;
+        return $this->render('index');
+    }
+
+    public function actionMain()
+    {
+        $this->layout = true;
         if (Yii::$app->user->isGuest)
         {
             return $this->redirect('index.php?r=site%2Flogin');
         }
-        return $this->render('index');
+        return $this->render('main');
+
     }
 
 
@@ -107,8 +128,9 @@ class SiteController extends Controller
     public function actionLogin()
     {
         $this->layout='main-login';
+        $this->layout = true;
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+            return $this->render('main');
         }
 
         $model = new LoginForm();
