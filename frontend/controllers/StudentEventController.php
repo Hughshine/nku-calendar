@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\CustomEvent;
 use common\models\Participation;
 use common\models\InstitutionEvent;
 use Yii;
@@ -17,7 +18,7 @@ use yii\helpers\Json;
  */
 class StudentEventController extends Controller
 {
-    public $colors = array(0=>'#6465A5', 1=>'#6975A6', 2=>'#F3E96B', 3=>'#F28A30',
+    public $colors = array(0=>'#6465A5', 1=>'#0294A5', 2=>'#F3E96B', 3=>'#F28A30',
         4=>'#F05837', 5=>'#00743F', 6=>'#93A806', 7=>'#F46A4E');
 
     const NANKAI_PURPLE = '#701e5e';
@@ -119,7 +120,7 @@ class StudentEventController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($date = null, $hour = '06', $minute = '00', $allday=false)
+    public function actionCreate($date = null, $hour = '06', $minute = '00', $color = 0, $allday=false)
     {
         try {
             $user = Yii::$app->user->identity;
@@ -127,6 +128,8 @@ class StudentEventController extends Controller
                 return null;
             }
             $model = new StudentEvent();
+
+            $model->ev_color = (int)$color;
             $end_hour = (int)$hour + 1;
             if ($date != null) {
                 if (strlen($hour) < 2) {
@@ -161,8 +164,60 @@ class StudentEventController extends Controller
             Yii::$app->session->setFlash('fail', $e->getMessage());
             return $this->renderAjax('create');
         }
+    }
+
+    public function actionDragCreate($ceid = null, $date = null, $hour = '06', $minute = '00', $allday=false)
+    {
+        try {
+            $user = Yii::$app->user->identity;
+            if (!$user) {
+                return null;
+            }
+            $custom_event = CustomEvent::findOne(['ev_id' => (int)$ceid]);
+
+            if(!$custom_event || $custom_event->ev_userid != $user->getId())
+                return null;
+            $model = new StudentEvent();
+
+            $model->ev_color = $custom_event->ev_color;
+            $end_hour = (int)$hour + 1;
+            if ($date != null) {
+                if (strlen($hour) < 2) {
+                    $hour = '0' . $hour;
+                }
+
+                if (strlen($minute) < 2)
+                    $minute = '0' . $minute;
+
+                if ($end_hour < 10) {
+                    $end_hour = '0' . $end_hour;
+                }
+
+                $end_date = $date . ' ' . $end_hour . ':' . $minute;
+
+                $date = $date . ' ' . $hour . ':' . $minute;
+                $model->ev_time = $date;
+                $model->ev_end = $end_date;
+                $model->ev_superevent_id = $custom_event->ev_id;
+                $model->ev_name = $custom_event->ev_name;
+                $model->ev_place = $custom_event->ev_place;
+                $model->ev_description = $custom_event->ev_description;
+            }
 
 
+            $model->ev_userid = $user->getId();
+
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', '创建成功');
+                return $this->redirect(['/site/main']);
+            }
+            Yii::$app->session->setFlash('error', '创建失败');
+            return $this->redirect(['/site/main']);
+//            ]);
+        }catch (\Exception $e) {
+            Yii::$app->session->setFlash('error', $e->getMessage());
+            return $this->redirect(['/site/main']);
+        }
     }
 
     /**

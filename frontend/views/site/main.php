@@ -23,6 +23,8 @@ $('#external-events .fc-event').each(function() {
     // store data so the calendar knows to render an event upon drop
     $(this).data('event', {
         id : $(this).attr("eventid"),
+        class: 'stu-event',
+        allday: 1,
         title: $.trim($(this).text()), // use the element's text as the event title
         stick: true // maintain when user navigates (see docs on the renderEvent method)
     });
@@ -68,18 +70,43 @@ $this->registerJs($DragJS);
         //    $('#w0').fullCalendar('unselect');
         //}
         //EOF;
-
         $JSDropEvent = <<<EOF
-function(date) {
-    alert("Dropped on " + date.format());
-    if ($('#drop-remove').is(':checked')) {
-        // if so, remove the element from the "Draggable Events" list
-        $(this).remove();
-    }
+function(date, jsEvent, draggedEl, resourceId) { 
+    ceid = draggedEl.helper.attr('eventid');
+    var year = date.toDate().getFullYear();
+    var month = date.toDate().getMonth() + 1;
+    var day = date.toDate().getDate();
+    var hour = (date.toDate().getHours()+16)%24;
+    var minute = date.toDate().getMinutes();    
+    var date = $(this).attr('data-date');
+    console.log(date);
     
-    //由 CustomEvent => StudentEvent
+//    alert(draggedEl.attr('eventid'));
+    
+    $.get("index.php?r=student-event/drag-create&date="+ year+"-"+month+"-"+day+"&hour="+hour+"&minute="+minute+"&ceid="+ceid, function( data ){console.log(data);} );
 }
 EOF;
+        $JsEventDrop = <<<EOF
+function(event, delta, revertFunc, jsEvent, ui, view) {
+        console.log(event);
+//      alert("eventDrop: " + event.start.format());
+    $.get("index.php?r=student-event/update&date="+ date.format()+"&ceid="+ceid, function( data ){alert(data);} );
+
+    }
+EOF;
+
+
+//        $JSDropEvent = <<<EOF
+//function(date) {
+//    alert("Dropped on " + date.format());
+//    if ($('#drop-remove').is(':checked')) {
+//        // if so, remove the element from the "Draggable Events" list
+//        $(this).remove();
+//    }
+//
+//    //由 CustomEvent => StudentEvent
+//}
+//EOF;
 
         $JSEventClick = <<<EOF
 function(calEvent, jsEvent, view) {
@@ -168,6 +195,7 @@ EOF;
                         'droppable' => true,
                         'editable' => true,
                         'drop' => new JsExpression($JSDropEvent),
+                        'eventDrop' => new JsExpression($JsEventDrop),
                         'firstDay' => 7,
                         'dayClick'=> new JsExpression($dayClick),
 //                    'select' => new JsExpression($JSCode),

@@ -1,3 +1,4 @@
+//自定义组件的点击事件
 $(function () {
     "use strict";
     $(document).on('click','.fc-day',function () {
@@ -13,7 +14,6 @@ $(function () {
         //         .find('#modalContent')
         //         .load('index.php?r=student-event/create&date='+date+' 00-00-01');
         // });
-        window.alert('wait');
     });
 
     $('#new-custom-event').click(function () {
