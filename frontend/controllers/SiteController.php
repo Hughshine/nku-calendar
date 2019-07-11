@@ -24,7 +24,7 @@ class SiteController extends Controller
     /**
      * {@inheritdoc}
      */
-    
+    public $enableCsrfValidation = false;
     /**
      * 留言添加
      */

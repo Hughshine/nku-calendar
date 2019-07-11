@@ -1,167 +1,168 @@
 <?php
-
 /* @var $this \yii\web\View */
 /* @var $content string */
-
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
-
-
 AppAsset::register($this);
 ?>
 <?php $this->beginPage()  ?>
 <!doctype html>
 <html lang="zh">
 <head>
-<!-- <link rel="stylesheet" type="text/css" href="css/default.css"> -->
-<script src='js/jquery.js'></script>
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.knob.js"></script>
-<script src="js/jquery.throttle.js"></script>
-<script src="js/jquery.classycountdown.js"></script>
-<script src="js/index.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="css/default.css"> -->
+    <script src='js/jquery.js'></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.knob.js"></script>
+    <script src="js/jquery.throttle.js"></script>
+    <script src="js/jquery.classycountdown.js"></script>
+    <script src="js/index.js"></script>
 
-<script>
-var theme_list_open = false;  
-$(document).ready(function(){
-  $("#100banner").hide(0);
-  $("#100banner").show(1000);
-  $("#title_1").hide(0);
-  $("#title_1").show(2000);
-  $("#button_1").hide(0);
-  $("#button_1").show(10);
-});
-</script>
+    <script>
+        var theme_list_open = false;
+        $(document).ready(function(){
+            $("#100banner").hide(0);
+            $("#100banner").show(1000);
+            $("#title_1").hide(0);
+            $("#title_1").show(2000);
+            $("#button_1").hide(0);
+            $("#button_1").show(10);
+        });
+    </script>
+
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.classycountdown.css" />
     <link href="css/nav_style.css" rel="stylesheet">
     <link href="css/bootstrapmin.css" rel="stylesheet" type="text/css">
 
-<style>
-	.ClassyCountdownDemo { margin:0 auto 30px auto; max-width:800px; width:calc(100%); padding:30px; display:block }
-  .divcss5{ border:50px ; width:300px; height:300px} 
-  .blue{
-  /*font-family: "华文细黑";*/
-  background:url("img/2.png") no-repeat;
-  background-size: 100%;
-}
-</style>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <style>
+        .ClassyCountdownDemo { margin:0 auto 30px auto; max-width:800px; width:calc(100%); padding:30px; display:block }
+        .divcss5{ border:50px ; width:300px; height:300px}
+        .blue{
+            /*font-family: "华文细黑";*/
+            background:url("img/2.png") no-repeat;
+            background-size: 100%;
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <title>Stylish Portfolio - Start Bootstrap Template</title>
+    <title>百年南开·再塑辉煌</title>
 
-  <!-- Bootstrap Core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/jquery.classycountdown.css"  rel="stylesheet" type="text/css"/>
-  <!-- Custom Fonts -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/jquery.classycountdown.css"  rel="stylesheet" type="text/css"/>
+    <!-- Custom Fonts -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
 
-  <!-- Custom CSS -->
-  <link href="css/stylish-portfolio.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.min.css" rel="stylesheet">
 </head>
 <body id="page-top">
 <?php $this->beginBody() ?>
 
-  <!-- Header -->
-  <header class="masthead d-flex">
+<!-- Header -->
+<header class="masthead d-flex">
     <div class="container text-center my-auto">
-      <h1 class="mb-1"><img id="100banner" src="img/100banner1.png" alt=""></h1>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <h3 id="title_1" class="mb-5">
-        <!-- 南开大学百年校庆主题活动管理服务 -->
-      </h3>
-      <!-- <a class="btn btn-primary btn-xl js-scroll-trigger" id="button_1" href="#count" style="background-color: rgb(128, 29, 174); display: inline-block;">继续了解！</a> -->
-      <br>
+        <h1 class="mb-1"><img id="100banner" src="img/100banner1.png" alt=""></h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h3 id="title_1" class="mb-5">
+            <!-- 南开大学百年校庆主题活动管理服务 -->
+        </h3>
+        <!-- <a class="btn btn-primary btn-xl js-scroll-trigger" id="button_1" href="#count" style="background-color: rgb(128, 29, 174); display: inline-block;">继续了解！</a> -->
+        <br>
     </div>
     <div class="overlay"></div>
-  </header>
+</header>
+<!-- Nav -->
+<div id="topNav">
+    <div class="container" style="padding-left:0px;padding-right:0px;">
+        <!-- Mobile Menu Button -->
+        <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+            <i class="fa fa-bars"></i>
+        </button>
+        <!-- Top Nav -->
+        <div>
+            <div class="navbar-collapse nav-main-collapse collapse" frag="面板102">
+                <nav class="nav-main">
+                    <ul id="topMain" class="nav nav-pills nav-main" style="text-align:center;">
+                        <li class="mega-menu logo-menu" frag="窗口10200">
+                            <a style="position: absolute;top: -52px;"><img src="img/nk100logowhite.png" style="width:150px"></a>
+                            <!-- No Data -->
+                        </li>
+                        <?php
+                        if (Yii::$app->user->isGuest) {
+                            echo
+                            '<li class="mega-menu  mega-menu-right1" >
+                            <a class="js-scroll-trigger" href="#page-top">首页</a>
+                            </li>
+                            <li class="mega-menu active" >
+                            <a class="js-scroll-trigger" href="index.php?r=site/login">登录</a>
+                            </li>
+                            <li class="mega-menu   " >
+                            <a class="js-scroll-trigger" href="index.php?r=site/signup">注册</a>
+                            </li>';
+                        } else {
 
-  <!-- Nav -->
-  <div id="topNav">
-      <div class="container" style="padding-left:0px;padding-right:0px;">
-          <!-- Mobile Menu Button -->
-          <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
-              <i class="fa fa-bars"></i>
-          </button>
-          <!-- Top Nav -->
-          <div>
-              <div class="navbar-collapse nav-main-collapse collapse" frag="面板102">
-                  <nav class="nav-main">
-                      <ul id="topMain" class="nav nav-pills nav-main" style="text-align:center;">
-                          <li class="mega-menu logo-menu" frag="窗口10200">
-                              <a style="position: absolute;top: -52px;"><img src="img/nk100logowhite.png" style="width:150px"></a>
-                              <!-- No Data -->
-                          </li>
-                          <?php
-                          if (Yii::$app->user->isGuest) {
-                          $menuItems[] = ['label' => '注册', 'url' => ['/site/signup']];
-                          $menuItems[] = ['label' => '登录', 'url' => ['/site/login']];
-                          } else {
-                          $menuItems[] = '<li>'
-                              . Html::beginForm(['/site/logout'], 'post')
-                              . Html::submitButton(
-                              '注销(' . Yii::$app->user->identity->username . ')',
-                              ['class' => 'btn btn-link logout']
-                              )
-                              . Html::endForm()
-                              . '</li>';
-                          }
-                          ?>
-                          <li class="mega-menu   mega-menu-right1" frag="窗口10205">
-                              <a class="js-scroll-trigger" href="index.php?r=site/login">登录</a>
-                          </li>
-                          <li class="mega-menu  active" frag="窗口10201">
-                              <a class="js-scroll-trigger" href="#page-top">首页</a>
-                          </li>
-                          <li class="mega-menu" frag="窗口10202">
-                              <a class="js-scroll-trigger" href="#count">倒计时</a>
-                          </li>
-                          <li class="mega-menu" frag="窗口10203">
-                              <a class="js-scroll-trigger" href="#comment">祝福南开</a>
-                          </li>
-                          <li class="mega-menu" frag="窗口10204">
-                              <a href="/nkrw/list.htm">人物南开</a>
-                          </li>
-                          <li class="mega-menu" frag="窗口10206">
-                              <a href="http://100.nankai.edu.cn/2018/1128/c10887a115520/page.htm">感恩南开</a>
-                          </li>
-                      </ul>
-                  </nav>
-              </div>
-          </div>
-          <!-- /Top Nav -->
-      </div><!-- /.container -->
-  </div>
-  <!-- Services -->
-  <section id="count" class="blue">
-     <!-- style="background:rgb(238,130,238);" -->
+                            echo
+                            '<li class="mega-menu  mega-menu-right1" >
+                            <a href="javascript:void(0);" onclick="document.getElementById(\'myform\').submit();">登出</a>
+                            <form id="myform" method="post" action="http://localhost:8081/nku-calendar/frontend/web/index.php?r=site/logout" value="<?php echo Yii::$app->request->csrfToken ?>">
+                            </form>
+                            </li>
+                            <li class="mega-menu" >
+                            <a class="js-scroll-trigger" href="index.php?r=site/logout">我的日程</a>
+                            </li>';
+
+                        }
+                        ?>
+                        <li class="mega-menu" frag="窗口10202">
+                            <a class="js-scroll-trigger" href="#count">倒计时</a>
+                        </li>
+                        <li class="mega-menu" frag="窗口10203">
+                            <a class="js-scroll-trigger" href="#comment">祝福南开</a>
+                        </li>
+                        <li class="mega-menu" frag="窗口10204">
+                            <a href="/nkrw/list.htm">人物南开</a>
+                        </li>
+                        <li class="mega-menu" frag="窗口10206">
+                            <a href="http://100.nankai.edu.cn/2018/1128/c10887a115520/page.htm">感恩南开</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- /Top Nav -->
+    </div><!-- /.container -->
+</div>
+<!-- Services -->
+<section id="count" class="blue">
+    <!-- style="background:rgb(238,130,238);" -->
     <div class="row">
-      <div class="col-md-3 divcss5" >
-          <div class="velas">
-          <div class="fuego"></div>
-          <div class="fuego"></div>
-          <div class="fuego"></div>
-          <div class="fuego"></div>
-          <div class="fuego"></div>
-          </div>
-      <svg id="cake" version="1.1" x="0px" y="0px" width="200px" height="500px" viewBox="0 0 200 500" enable-background="new 0 0 200 500" xml:space="preserve">
+        <div class="col-md-3 divcss5" >
+            <div class="velas">
+                <div class="fuego"></div>
+                <div class="fuego"></div>
+                <div class="fuego"></div>
+                <div class="fuego"></div>
+                <div class="fuego"></div>
+            </div>
+            <svg id="cake" version="1.1" x="0px" y="0px" width="200px" height="500px" viewBox="0 0 200 500" enable-background="new 0 0 200 500" xml:space="preserve">
           <path fill="#a88679" d="M173.667-13.94c-49.298,0-102.782,0-147.334,0c-3.999,0-4-16.002,0-16.002
           c44.697,0,96.586,0,147.334,0C177.667-29.942,177.668-13.94,173.667-13.94z">
               <animate id="bizcocho_3" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1" begin="relleno_2.end" dur="0.3s" fill="freeze" values="
@@ -176,10 +177,10 @@ $(document).ready(function(){
           c46.385,0,97.539,0,147.334,0C177.668,411.567,177.667,427.569,173.667,427.569z
                                 " />
           </path>
-          <path fill="#8b6a60" d="M100-178.521c1.858,0,3.364,1.506,3.364,3.363c0,0,0,33.17,0,44.227
+                <path fill="#8b6a60" d="M100-178.521c1.858,0,3.364,1.506,3.364,3.363c0,0,0,33.17,0,44.227
           c0,19.144,0,57.431,0,76.574c0,10.152,0,40.607,0,40.607c0,1.858-1.506,3.364-3.364,3.364l0,0c-1.858,0-3.364-1.506-3.364-3.364c0,0,0-30.455,0-40.607c0-19.144,0-57.432,0-76.575c0-11.057,0-44.226,0-44.226C96.636-177.015,98.142-178.521,100-178.521
           L100-178.521z">
-              <animate id="relleno_2" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0 0 0.58 1" begin="bizcocho_2.end" dur="0.5s" fill="freeze" values="
+                    <animate id="relleno_2" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0 0 0.58 1" begin="bizcocho_2.end" dur="0.5s" fill="freeze" values="
                                 M100-178.521c1.858,0,3.364,1.506,3.364,3.363c0,0,0,33.17,0,44.227
           c0,19.144,0,57.431,0,76.574c0,10.152,0,40.607,0,40.607c0,1.858-1.506,3.364-3.364,3.364l0,0c-1.858,0-3.364-1.506-3.364-3.364c0,0,0-30.455,0-40.607c0-19.144,0-57.432,0-76.575c0-11.057,0-44.226,0-44.226C96.636-177.015,98.142-178.521,100-178.521
           L100-178.521z
@@ -198,10 +199,10 @@ $(document).ready(function(){
           c19.143,0,20.39-3.797,26.459,0c3,1.877,0,7.823,0,7.823c-2.412,2.258-58.328,0-73.667,0l0,0c-1.858,0-67.187,0-73.667,0
           c0,0-4.125-4.983,0-7.823c5.201-3.58,16.085,0,23.725,0c8.841,0,20.762,0,20.762,0c3.686,0,8.597,0,19.511,0H102.242z
                                 " />
-          </path>
-          <path fill="#a88679" d="M173.667-15.929c-46.512,0-105.486,0-147.334,0c-3.999,0-4-16.002,0-16.002
+                </path>
+                <path fill="#a88679" d="M173.667-15.929c-46.512,0-105.486,0-147.334,0c-3.999,0-4-16.002,0-16.002
           c43.566,0,97.96,0,147.334,0C177.667-31.931,177.666-15.929,173.667-15.929z">
-              <animate id="bizcocho_2" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0.25 0 0.58 1" begin="relleno_1.end" dur="0.5s" fill="freeze" values="
+                    <animate id="bizcocho_2" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0.25 0 0.58 1" begin="relleno_1.end" dur="0.5s" fill="freeze" values="
                                 M173.667-15.929c-46.512,0-105.486,0-147.334,0c-3.999,0-4-16.002,0-16.002
           c43.566,0,97.96,0,147.334,0C177.667-31.931,177.666-15.929,173.667-15.929z
                                 ;
@@ -214,11 +215,11 @@ $(document).ready(function(){
                                 M173.667,451.394c-49.298,0-102.782,0-147.334,0c-3.999,0-4-16.002,0-16.002
           c44.697,0,96.586,0,147.334,0C177.667,435.392,177.668,451.394,173.667,451.394z
                                 " />
-          </path>
-          <path fill="#8b6a60" d="M101.368-73.685c0,12.164,0,15.18,0,28.519c0,22.702,0-13.661,0,8.304c0,14.48,0,18.233,0,30.512
+                </path>
+                <path fill="#8b6a60" d="M101.368-73.685c0,12.164,0,15.18,0,28.519c0,22.702,0-13.661,0,8.304c0,14.48,0,18.233,0,30.512
           c0,1.753-2.958,1.847-2.958,0c0-12.68,0-16.277,0-30.401c0-21.983,0,11.66,0-8.305c0-13.027,0-15.992,0-28.628
           C98.411-75.883,101.368-75.592,101.368-73.685z">
-              <animate id="relleno_1" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0 0 0.6 1" begin="bizcocho_1.end" dur="0.5s" fill="freeze" values="
+                    <animate id="relleno_1" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0 0 0.6 1" begin="bizcocho_1.end" dur="0.5s" fill="freeze" values="
                                 M101.368-73.685c0,12.164,0,15.18,0,28.519c0,22.702,0-13.661,0,8.304c0,14.48,0,18.233,0,30.512
           c0,1.753-2.958,1.847-2.958,0c0-12.68,0-16.277,0-30.401c0-21.983,0,11.66,0-8.305c0-13.027,0-15.992,0-28.628
           C98.411-75.883,101.368-75.592,101.368-73.685z
@@ -235,10 +236,10 @@ $(document).ready(function(){
           c-14.48,0-17.884,0-30.163,0c-2.087,0-2.068,0-3.915,0c-13.333,0-8.963,0-23.088,0c-11.668,0-34.99-0.294-48.412,1.831
           c-4.109,0.65-3.01-10.006,0-10.006C37.129,451.394,149.379,451.394,173.667,451.394z
                                 " />
-          </path>
-          <path fill="#a88679" d="M173.667,21.571c-33.174,0-111.467,0-147.334,0c-4,0-4-16.002,0-16.002c39.836,0,105.982,0,147.334,0
+                </path>
+                <path fill="#a88679" d="M173.667,21.571c-33.174,0-111.467,0-147.334,0c-4,0-4-16.002,0-16.002c39.836,0,105.982,0,147.334,0
           C177.668,5.569,177.667,21.571,173.667,21.571z">
-              <animate id="bizcocho_1" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0 0 1 1; 0.25 0 1 1; 0 0 1 1; 0.25 0 0.6 1" begin="2s" dur="0.8s" fill="freeze" values="
+                    <animate id="bizcocho_1" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0 0 1 1; 0.25 0 1 1; 0 0 1 1; 0.25 0 0.6 1" begin="2s" dur="0.8s" fill="freeze" values="
                                 M173.667,21.571c-33.174,0-111.467,0-147.334,0c-4,0-4-16.002,0-16.002c39.836,0,105.982,0,147.334,0
           C177.668,5.569,177.667,21.571,173.667,21.571z
                                 ;
@@ -260,12 +261,12 @@ $(document).ready(function(){
                                 M173.667,475.571c-46.512,0-105.486,0-147.334,0c-3.999,0-4-16.002,0-16.002c43.566,0,97.96,0,147.334,0
           C177.667,459.569,177.666,475.571,173.667,475.571z
                                 " />
-          </path>
-          <path fill="#fefae9" d="M104.812,113.216c0,3.119-2.164,5.67-4.812,5.67c-2.646,0-4.812-2.551-4.812-5.67c0-5.594,0-16.782,0-22.375
+                </path>
+                <path fill="#fefae9" d="M104.812,113.216c0,3.119-2.164,5.67-4.812,5.67c-2.646,0-4.812-2.551-4.812-5.67c0-5.594,0-16.782,0-22.375
         c0-5.143,0-15.427,0-20.568c0-7.333,0-21.998,0-29.33c0-5.523,0-16.569,0-22.092c0-3.295,0-9.885,0-13.181
         C95.188,2.551,97.353,0,100,0c2.648,0,4.812,2.551,4.812,5.669c0,3.248,0,9.743,0,12.991c0,5.428,0,16.284,0,21.711
         c0,7.618,0,22.854,0,30.472c0,4.952,0,14.854,0,19.807C104.812,96.292,104.812,107.576,104.812,113.216z">
-              <animate id="crema" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0 0 1 1; 0.25 0 1 1; 0 0 1 1; 0 0 0.58 1" begin="bizcocho_3.end" dur="2s" fill="freeze" values="
+                    <animate id="crema" attributeName="d" calcMode="spline" keySplines="0 0 1 1; 0 0 1 1; 0 0 1 1; 0.25 0 1 1; 0 0 1 1; 0 0 0.58 1" begin="bizcocho_3.end" dur="2s" fill="freeze" values="
                                 M104.812,113.216c0,3.119-2.164,5.67-4.812,5.67c-2.646,0-4.812-2.551-4.812-5.67c0-5.594,0-16.782,0-22.375
         c0-5.143,0-15.427,0-20.568c0-7.333,0-21.998,0-29.33c0-5.523,0-16.569,0-22.092c0-3.295,0-9.885,0-13.181
         C95.188,2.551,97.353,0,100,0c2.648,0,4.812,2.551,4.812,5.669c0,3.248,0,9.743,0,12.991c0,5.428,0,16.284,0,21.711
@@ -306,208 +307,195 @@ $(document).ready(function(){
         c16.642-0.61,32.903,1.125,46.213,1.5c12.438,0.351,35.058-5.579,31.863,6.451c-5.532,20.833,1.25,28.216-4.409,27.883
         c-7.606-0.447-6.058-37.895-20.62-23.333c-10.167,10.166-15.972-0.747-25,12C119.547,443.568,121.798,416.515,111.547,415.233z
                                 " />
-          </path>
-          <rect x="10" y="475.571" fill="#fefae9" width="180" height="4" />
+                </path>
+                <rect x="10" y="475.571" fill="#fefae9" width="180" height="4" />
       </svg>
-      <div class="text">
-        <h1>happy birthday!</h1>
-        <p>NK University!</p>
-      </div>
-      <div style="text-align:center;clear:both">
-      <script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
-      <script src="/follow.js" type="text/javascript"></script>
+            <div class="text">
+                <h1>happy birthday!</h1>
+                <p>NK University!</p>
+            </div>
+            <div style="text-align:center;clear:both">
+                <script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+                <script src="/follow.js" type="text/javascript"></script>
+            </div>
+        </div>
+        <div class="col-md-6" style="width:50%;">
+            <br>
+            <br>
+            <br>
+            <center>
+                <img id="count1" src="img/count_f.jpg" alt="" style="width:300px">
+            </center>
+        </div>
+        <div class="col-md-3" style="width:50%;">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+                <img id="100logo" src="img/guzhang.gif" alt="">
+        </div>
     </div>
-  </div>
-  <div class="col-md-6" style="width:50%;">
-    <br>
-    <br>
-    <br>
-    <center>
-        <img id="count1" src="img/count_f.jpg" alt="" style="width:300px">
-     </center>
-     </div>
-  <div class="col-md-3" style="width:50%;">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-  	<center>
-      	<img id="100logo" src="img/nk100logowhite.png" alt="" style="width:150px">
-     </center>
-     </div>
-     </div>
-  <div id="countdown18" class="ClassyCountdownDemo"></div>
-	<script type="text/javascript">
-	$(document).ready(function() {
-		var endTime = new Date("2019/10/17 00:00:00"); // 最终时间
-	    var nowTime = new Date();
-	    var second = parseInt((endTime.getTime() - nowTime.getTime()) / 1000);
-		$('#countdown18').ClassyCountdown({
-			theme: "flat-colors-black",
-			end:$.now()+second
-		});
-	});
-	</script>
+    <div id="countdown18" class="ClassyCountdownDemo"></div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var endTime = new Date("2019/10/17 00:00:00"); // 最终时间
+            var nowTime = new Date();
+            var second = parseInt((endTime.getTime() - nowTime.getTime()) / 1000);
+            $('#countdown18').ClassyCountdown({
+                theme: "flat-colors-black",
+                end:$.now()+second
+            });
+        });
+    </script>
 </section>
- <!--  </section> -->
+<!--  </section> -->
 
-  <section id="comment">
-    
-  </section>
+<section id="comment">
 
-  <section class="content-section bg-primary text-white text-center" id="services">
+</section>
+
+<section class="content-section bg-primary text-white text-center" id="services">
     <div class="container">
-      <div class="content-section-heading">
-        <h3 class="text-secondary mb-0">服务</h3>
-        <h2 class="mb-5">南开大学百年校庆主题活动管理服务</h2>
-      </div>
-      <div class="row">
-        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+        <div class="content-section-heading">
+            <h3 class="text-secondary mb-0">服务</h3>
+            <h2 class="mb-5">南开大学百年校庆主题活动管理服务</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
           <span class="service-icon rounded-circle mx-auto mb-3">
             <i class="icon-screen-smartphone"></i>
           </span>
-          <h4>
-            <strong>获取并设置活动提醒</strong>
-          </h4>
-          <p class="text-faded mb-0">Looks great on any screen size!</p>
-        </div>
-        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                <h4>
+                    <strong>获取并设置活动提醒</strong>
+                </h4>
+                <p class="text-faded mb-0">Looks great on any screen size!</p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
           <span class="service-icon rounded-circle mx-auto mb-3">
             <i class="icon-pencil"></i>
           </span>
-          <h4>
-            <strong>自定义自己的日程安排</strong>
-          </h4>
-          <p class="text-faded mb-0">Freshly redesigned for Bootstrap 4.</p>
-        </div>
-        <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+                <h4>
+                    <strong>自定义自己的日程安排</strong>
+                </h4>
+                <p class="text-faded mb-0">Freshly redesigned for Bootstrap 4.</p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
           <span class="service-icon rounded-circle mx-auto mb-3">
             <i class="icon-like"></i>
           </span>
-          <h4>
-            <strong>为您参加的活动打分</strong>
-          </h4>
-          <p class="text-faded mb-0">Millions of users
-            <i class="fas fa-heart"></i>
-            Start Bootstrap!</p>
-        </div>
-        <div class="col-lg-3 col-md-6">
+                <h4>
+                    <strong>为您参加的活动打分</strong>
+                </h4>
+                <p class="text-faded mb-0">Millions of users
+                    <i class="fas fa-heart"></i>
+                    Start Bootstrap!</p>
+            </div>
+            <div class="col-lg-3 col-md-6">
           <span class="service-icon rounded-circle mx-auto mb-3">
             <i class="icon-mustache"></i>
           </span>
-          <h4>
-            <strong>为母校献上自己的祝福</strong>
-          </h4>
-          <p class="text-faded mb-0">I mustache you a question...</p>
+                <h4>
+                    <strong>为母校献上自己的祝福</strong>
+                </h4>
+                <p class="text-faded mb-0">I mustache you a question...</p>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
+</section>
 
 
-  <!-- Callout -->
- <!--  <section class="callout">
-    <div class="container text-center">
-      <h2 class="mx-auto mb-5">Welcome to
-        <em>your</em>
-        next website!</h2>
-      <a class="btn btn-primary btn-xl" href="https://startbootstrap.com/template-overviews/stylish-portfolio/">Download Now!</a>
-    </div>
-  </section> -->
-
-  <!--team-->
-  <section class="content-section" id="team">
+<!-- Callout -->
+<!--team-->
+<section class="content-section" id="team">
     <div class="container">
-      <div class="content-section-heading text-center">
-        <h3 class="text-secondary mb-0">剪影</h3>
-        <h2 class="mb-5">关于团队</h2>
-      </div>
-      <div class="row no-gutters">
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
+        <div class="content-section-heading text-center">
+            <h3 class="text-secondary mb-0">剪影</h3>
+            <h2 class="mb-5">关于团队</h2>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-lg-6">
+                <a class="portfolio-item" href="#">
             <span class="caption">
               <span class="caption-content">
                 <h2>Stationary</h2>
                 <p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p>
               </span>
             </span>
-            <img class="img-fluid" src="img/portfolio-1.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
+                    <img class="img-fluid" src="img/portfolio-1.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-lg-6">
+                <a class="portfolio-item" href="#">
             <span class="caption">
               <span class="caption-content">
                 <h2>Ice Cream</h2>
                 <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
               </span>
             </span>
-            <img class="img-fluid" src="img/portfolio-2.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
+                    <img class="img-fluid" src="img/portfolio-2.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-lg-6">
+                <a class="portfolio-item" href="#">
             <span class="caption">
               <span class="caption-content">
                 <h2>Strawberries</h2>
                 <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
               </span>
             </span>
-            <img class="img-fluid" src="img/portfolio-3.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
+                    <img class="img-fluid" src="img/portfolio-3.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-lg-6">
+                <a class="portfolio-item" href="#">
             <span class="caption">
               <span class="caption-content">
                 <h2>Workspace</h2>
                 <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
               </span>
             </span>
-            <img class="img-fluid" src="img/portfolio-4.jpg" alt="">
-          </a>
+                    <img class="img-fluid" src="img/portfolio-4.jpg" alt="">
+                </a>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
+</section>
 
 
 <footer class="footer text-center">
     <div class="container">
-      <ul class="list-inline mb-5">
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3" href="#">
-            <i class="icon-social-facebook"></i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3" href="#">
-            <i class="icon-social-twitter"></i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white" href="#">
-            <i class="icon-social-github"></i>
-          </a>
-        </li>
-      </ul>
-      <p class="text-muted small mb-0">Copyright &copy; Your Website 2019</p>
+        <ul class="list-inline mb-5">
+            <li class="list-inline-item">
+                <a class="social-link rounded-circle text-white mr-3" href="#">
+                    <i class="icon-social-facebook"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="social-link rounded-circle text-white mr-3" href="#">
+                    <i class="icon-social-twitter"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="social-link rounded-circle text-white" href="#">
+                    <i class="icon-social-github"></i>
+                </a>
+            </li>
+        </ul>
+        <p class="text-muted small mb-0">Copyright &copy; Your Website 2019</p>
     </div>
-  </footer>
-  <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+</footer>
+<a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
     <i class="fas fa-angle-up"></i>
-  </a>
+</a>
 
 
-  <!-- <script src="vendor/jquery/"></script> -->
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="js/stylish-portfolio.min.js"></script>
+<!-- <script src="vendor/jquery/"></script> -->
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="js/stylish-portfolio.min.js"></script>
 <?php $this->endBody() ?>
 </body>
 </html>
