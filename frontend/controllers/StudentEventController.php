@@ -17,8 +17,10 @@ use yii\helpers\Json;
  */
 class StudentEventController extends Controller
 {
-    public $colors = array(0=>'#2ae0c8', 1=>'#cbf5fb', 2=>'#bdf3d4', 3=>'#e6e2c3',
-        4=>'#e3c887', 5=>'#fad8be', 6=>'#fbb8ac', 7=>'#fe6673');
+    public $colors = array(0=>'#6465A5', 1=>'#6975A6', 2=>'#F3E96B', 3=>'#F28A30',
+        4=>'#F05837', 5=>'#00743F', 6=>'#93A806', 7=>'#F46A4E');
+
+    const NANKAI_PURPLE = '#701e5e';
     /**
      * {@inheritdoc}
      */
@@ -51,46 +53,52 @@ class StudentEventController extends Controller
 
 
     public function actionJsonCalendar($start=NULL,$end=NULL,$_=NULL){
-        $user = Yii::$app->user;
-        if ($user->isGuest)
-            return;
+        try {
 
-        $userid = $user->id;
+            $user = Yii::$app->user;
+            if ($user->isGuest)
+                return;
 
-        $c_participations = Participation::findAll(['user_id' => $userid]);
+            $userid = $user->id;
 
-        $pevents = StudentEvent::findAll(['ev_userid' => $userid]);
+            $c_participations = Participation::findAll(['user_id' => $userid]);
 
-        $events = array();
-        foreach ($c_participations as $c)
-        {
-            $cevent = InstitutionEvent::findOne(['ev_id' => $c->ev_id]);
-            $Event = new \yii2fullcalendar\models\Event();
-            $Event->id = $cevent->ev_id;
-            $Event->className = 'inst-event';
-            $Event->title = $cevent->ev_name;
-            $Event->start = $cevent->ev_time;
-            $Event->color = $this->colors[rand(0,7)];
-            $Event->allDay = $cevent->all_day;
-            $events[] = $Event;
+            $pevents = StudentEvent::findAll(['ev_userid' => $userid]);
+
+            $events = array();
+            foreach ($c_participations as $c)
+            {
+                $cevent = InstitutionEvent::findOne(['ev_id' => $c->ev_id]);
+                $Event = new \yii2fullcalendar\models\Event();
+                $Event->id = $cevent->ev_id;
+                $Event->className = 'inst-event';
+                $Event->title = $cevent->ev_name;
+                $Event->start = $cevent->ev_time;
+                $Event->color = StudentEventController::NANKAI_PURPLE;
+                $Event->allDay = $cevent->all_day;
+                $events[] = $Event;
+            }
+
+            foreach ($pevents as $p)
+            {
+                $Event = new \yii2fullcalendar\models\Event();
+                $Event->id = $p->ev_id;
+                $Event->className = 'stu-event';
+                $Event->title = $p->ev_name;
+                $Event->start = $p->ev_time;
+                $Event->end = $p->ev_end;
+                $Event->color = $this->colors[$p->ev_color];
+                $Event->allDay = $p->all_day;
+                $events[] = $Event;
+            }
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        Yii::$app->response->data  =  $events;//Json::encode($events);
+//        header('Content-type: application/json');
+//        echo ;
+//        Yii::$app->end();
+        }catch (\Exception $e) {
+            Yii::$app->session->setFlash('error', $e->getMessage());
         }
-
-        foreach ($pevents as $p)
-        {
-            $Event = new \yii2fullcalendar\models\Event();
-            $Event->id = $p->ev_id;
-            $Event->className = 'stu-event';
-            $Event->title = $p->ev_name;
-            $Event->start = $p->ev_time;
-            $Event->end = $p->ev_end;
-            $Event->color = $this->colors[$p->ev_color];
-            $Event->allDay = $p->all_day;
-            $events[] = $Event;
-        }
-
-        header('Content-type: application/json');
-        echo Json::encode($events);
-        Yii::$app->end();
     }
 
     /**
@@ -113,44 +121,48 @@ class StudentEventController extends Controller
      */
     public function actionCreate($date = null, $hour = '06', $minute = '00', $allday=false)
     {
-        $user = Yii::$app->user->identity;
-        if(!$user)
-        {
-            return null;
-        }
-        $model = new StudentEvent();
-        $end_hour = (int)$hour + 1;
-        if($date != null)
-        {
-            if (strlen($hour)<2) {
-                $hour = '0' . $hour;
-
+        try {
+            $user = Yii::$app->user->identity;
+            if (!$user) {
+                return null;
             }
-            if (strlen($minute)<2)
-                $minute= '0'.$minute;
+            $model = new StudentEvent();
+            $end_hour = (int)$hour + 1;
+            if ($date != null) {
+                if (strlen($hour) < 2) {
+                    $hour = '0' . $hour;
 
-            if($end_hour < 10) {
-                $end_hour = '0'.$end_hour;
+                }
+                if (strlen($minute) < 2)
+                    $minute = '0' . $minute;
+
+                if ($end_hour < 10) {
+                    $end_hour = '0' . $end_hour;
+                }
+
+                $end_date = $date . ' ' . $end_hour . ':' . $minute;
+
+                $date = $date . ' ' . $hour . ':' . $minute;
+                $model->ev_time = $date;
+                $model->ev_end = $end_date;
             }
 
-            $end_date = $date.' '.$end_hour.':'.$minute;
 
-            $date = $date.' '.$hour.':'.$minute;
-            $model->ev_time = $date;
-            $model->ev_end = $end_date;
+            $model->ev_userid = $user->getId();
+
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                Yii::$app->session->setFlash('success', '创建成功');
+                return $this->redirect(['/site/main']);
+            }
+            return $this->renderAjax('create', [
+                'model' => $model,
+            ]);
+        }catch (\Exception $e) {
+            Yii::$app->session->setFlash('fail', $e->getMessage());
+            return $this->renderAjax('create');
         }
 
 
-        $model->ev_userid = $user->getId();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success','创建成功');
-            return $this->redirect(['/site/main']);
-        }
-
-        return $this->renderAjax('create', [
-            'model' => $model,
-        ]);
     }
 
     /**

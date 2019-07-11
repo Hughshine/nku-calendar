@@ -19,8 +19,8 @@ class CustomEventsWidget extends Widget
     public $option='';//组件类型
     public $events = array();
 
-    public $colors = array(0=>'#2ae0c8', 1=>'#cbf5fb', 2=>'#bdf3d4', 3=>'#e6e2c3',
-        4=>'#e3c887', 5=>'#fad8be', 6=>'#fbb8ac', 7=>'#fe6673');
+    public $colors = array(0=>'#6465A5', 1=>'#0294A5', 2=>'#F3E96B', 3=>'#F28A30',
+        4=>'#F05837', 5=>'#00743F', 6=>'#93A806', 7=>'#F46A4E');
 
     public function init()
     {
