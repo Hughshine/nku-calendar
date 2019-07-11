@@ -1,5 +1,4 @@
-suite_namespace: common\tests\unit
-actor: UnitTester
+class_name: UnitTester
 bootstrap: false
 modules:
     enabled:

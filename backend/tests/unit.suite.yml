@@ -1,2 +1,1 @@
-suite_namespace: backend\tests\unit
-actor: UnitTester
+class_name: UnitTester

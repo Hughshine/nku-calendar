@@ -1,9 +1,9 @@
 <?php
 $params = array_merge(
-    require __DIR__ . '/../../common/config/params.php',
-    require __DIR__ . '/../../common/config/params-local.php',
-    require __DIR__ . '/params.php',
-    require __DIR__ . '/params-local.php'
+    require(__DIR__ . '/../../common/config/params.php'),
+    require(__DIR__ . '/../../common/config/params-local.php'),
+    require(__DIR__ . '/params.php'),
+    require(__DIR__ . '/params-local.php')
 );
 
 return [
@@ -13,9 +13,24 @@ return [
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
+        'view' => [
+                'theme' => [
+                    'pathMap' => [
+                        '@backend/views' => '@backend/views/yii2-app'
+                    ],
+                ],
+            ],
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
+
+        'urlManager'=>[
+            'showScriptName'=>false,
+            'enablePrettyUrl'=>true,
+            'rules'=>[],
+
+        ],
+
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,

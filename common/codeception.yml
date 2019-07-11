@@ -1,10 +1,10 @@
 namespace: common\tests
-actor_suffix: Tester
+actor: Tester
 paths:
     tests: tests
-    output: tests/_output
+    log: tests/_output
     data: tests/_data
-    support: tests/_support
+    helpers: tests/_support
 settings:
     bootstrap: _bootstrap.php
     colors: true
@@ -12,4 +12,4 @@ settings:
 modules:
     config:
         Yii2:
-            configFile: 'config/codeception-local.php'
+            configFile: 'config/test-local.php'

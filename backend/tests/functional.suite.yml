@@ -1,5 +1,4 @@
-suite_namespace: backend\tests\functional
-actor: FunctionalTester
+class_name: FunctionalTester
 modules:
     enabled:
         - Yii2

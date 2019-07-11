@@ -6,14 +6,14 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
-
+use backend\controllers\base\BaseController;
 /**
  * Site controller
  */
-class SiteController extends Controller
+class SiteController extends BaseController
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function behaviors()
     {
@@ -42,7 +42,7 @@ class SiteController extends Controller
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function actions()
     {
@@ -70,6 +70,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+       
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -78,8 +79,6 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
-            $model->password = '';
-
             return $this->render('login', [
                 'model' => $model,
             ]);

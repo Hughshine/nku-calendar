@@ -3,11 +3,12 @@ namespace common\models;
 
 use Yii;
 use yii\base\Model;
+use common\models\base\BaseModel;
 
 /**
  * Login form
  */
-class LoginForm extends Model
+class LoginForm extends BaseModel
 {
     public $username;
     public $password;
@@ -17,7 +18,7 @@ class LoginForm extends Model
 
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function rules()
     {
@@ -57,9 +58,9 @@ class LoginForm extends Model
     {
         if ($this->validate()) {
             return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
+        } else {
+            return false;
         }
-        
-        return false;
     }
 
     /**
