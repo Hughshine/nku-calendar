@@ -8,6 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
+    'name' => '100 days',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
@@ -36,6 +37,13 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+//        'assetManager' => [
+//            'bundles' => [
+//                'dmstr\web\AdminLteAsset' => [
+//                    'skin' => 'skin-purple-light',
+//                ],
+//            ],
+//        ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -45,5 +53,9 @@ return [
         ],
         */
     ],
+    // set target language to be Chinese
+    'language' => 'zh-CN',
+    // set source language to be English
+    'sourceLanguage' => 'en-US',
     'params' => $params,
 ];

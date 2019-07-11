@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\InstitutionEvent;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -14,6 +15,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\helpers\Json;
 use frontend\models\FeedForm;
 
 /**
@@ -21,6 +23,8 @@ use frontend\models\FeedForm;
  */
 class SiteController extends Controller
 {
+    public $colors = array(0=>'#2ae0c8', 1=>'#cbf5fb', 2=>'#bdf3d4', 3=>'#e6e2c3',
+        4=>'#e3c887', 5=>'#fad8be', 6=>'#fbb8ac', 7=>'#fe6673');
     /**
      * {@inheritdoc}
      */
@@ -85,6 +89,13 @@ class SiteController extends Controller
         ];
     }
 
+    public function actionHelloWorld($msg = 'hello11')
+    {
+        $view = \Yii::$app->getView();
+        $view->params['message'] = $msg;
+        return $this->render('hello', ['message'=> $msg]);
+//        return 'Hello world';
+    }
     /**
      * Displays homepage.
      *
@@ -96,6 +107,19 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    public function actionMain()
+    {
+        $this->layout = 'main';
+        if (Yii::$app->user->isGuest)
+        {
+            return $this->redirect('index.php?r=site%2Flogin');
+        }
+        return $this->render('main');
+
+    }
+
+
+
     /**
      * Logs in a user.
      *
@@ -103,16 +127,19 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        $this->layout='main-login';
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+            $this->layout='main';
+            return $this->redirect('index.php?r=site%2Fmain');
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            $this->layout='main';
+            return $this->redirect('index.php?r=site%2Fmain');
         } else {
             $model->password = '';
-
+            $this->layout='main-login';
             return $this->render('login', [
                 'model' => $model,
             ]);
@@ -129,6 +156,77 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionForm($start,$end)
+    {
+        return $this->renderAjax('form',[
+            'start'=>$start,
+            'end'=>$end
+        ]);
+    }
+
+    public function actionDropChild($id,$start,$end){
+        echo "ID=".$id." START=".$start." EBD=".$end;
+        //$model = Pilotproject::findOne(['ID'=>$id]);
+
+        //$model->PLAN_DATE1 = $start;
+        //$model->PLAN_DATE2 = $end;
+
+        // $model->save();
+    }
+
+    public function actionEventCalendarSchedule()
+    {
+        $aryEvent=[
+            ['id' => '1', 'resourceId' => 'b', 'start' => '2016-05-07T02:00:00', 'end' => '2016-05-07T07:00:00', 'title' => 'event 1'],
+            ['id' => '2', 'resourceId' => 'c', 'start' => '2016-05-07T05:00:00', 'end' => '2016-05-07T22:00:00', 'title' => 'event 2'],
+            ['id' => '3', 'resourceId' => 'd', 'start' => '2016-05-06', 'end' => '2016-05-08', 'title' => 'event 3'],
+            ['id' => '4', 'resourceId' => 'e', 'start' => '2016-05-07T03:00:00', 'end' => '2016-05-07T08:00:00', 'title' => 'event 4'],
+            ['id' => '5', 'resourceId' => 'f', 'start' => '2016-05-07T00:30:00', 'end' => '2016-05-07T02:30:00', 'title' => 'event 5'],
+        ];
+
+        return Json::encode($aryEvent);
+    }
+
+    public function actionResourceCalendarSchedule()
+    {
+        $aryResource=[
+            ['id' => 'a', 'title' => 'Daily Report'],
+            ['id' => 'b', 'title' => 'Auditorium B', 'eventColor' => 'green'],
+            ['id' => 'c', 'title' => 'Auditorium C', 'eventColor' => 'orange'],
+            [
+                'id'       => 'd', 'title' => 'Auditorium D',
+                'children' => [
+                    ['id' => 'd1', 'title' => 'Room D1'],
+                    ['id' => 'd2', 'title' => 'Room D2'],
+                ],
+            ],
+            ['id' => 'e', 'title' => 'Auditorium E'],
+            ['id' => 'f', 'title' => 'Auditorium F', 'eventColor' => 'red'],
+            ['id' => 'g', 'title' => 'Auditorium G'],
+            ['id' => 'h', 'title' => 'Auditorium H'],
+            ['id' => 'i', 'title' => 'Auditorium I'],
+            ['id' => 'j', 'title' => 'Auditorium J'],
+            ['id' => 'k', 'title' => 'Auditorium K'],
+            ['id' => 'l', 'title' => 'Auditorium L'],
+            ['id' => 'm', 'title' => 'Auditorium M'],
+            ['id' => 'n', 'title' => 'Auditorium N'],
+            ['id' => 'o', 'title' => 'Auditorium O'],
+            ['id' => 'p', 'title' => 'Auditorium P'],
+            ['id' => 'q', 'title' => 'Auditorium Q'],
+            ['id' => 'r', 'title' => 'Auditorium R'],
+            ['id' => 's', 'title' => 'Auditorium S'],
+            ['id' => 't', 'title' => 'Auditorium T'],
+            ['id' => 'u', 'title' => 'Auditorium U'],
+            ['id' => 'v', 'title' => 'Auditorium V'],
+            ['id' => 'w', 'title' => 'Auditorium W'],
+            ['id' => 'x', 'title' => 'Auditorium X'],
+            ['id' => 'y', 'title' => 'Auditorium Y'],
+            ['id' => 'z', 'title' => 'Auditorium Z'],
+        ];
+
+        return Json::encode($aryResource);
     }
 
     /**
