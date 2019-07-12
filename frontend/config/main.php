@@ -53,6 +53,10 @@ return [
         ],
         */
     ],
+    'aliases' => [
+        '@bower' => '@vendor/bower-asset',
+        '@npm' => '@vendor/npm-asset',
+    ],
     // set target language to be Chinese
     'language' => 'zh-CN',
     // set source language to be English

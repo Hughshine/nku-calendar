@@ -62,9 +62,9 @@ class StudentEventController extends Controller
 
             $userid = $user->id;
 
-            $c_participations = Participation::findAll(['user_id' => $userid]);
+            $c_participations = Participation::findAll(['user_id' => $userid, 'op1_status' => 0]);
 
-            $pevents = StudentEvent::findAll(['ev_userid' => $userid]);
+            $pevents = StudentEvent::findAll(['ev_userid' => $userid, 'ev_status' => 0]);
 
             $events = array();
             foreach ($c_participations as $c)
@@ -166,6 +166,18 @@ class StudentEventController extends Controller
         }
     }
 
+    public function actionChangeStatus($id)
+    {
+        $user = Yii::$app->user->identity;
+        $model = StudentEvent::findOne(['ev_id' => $id]);
+        if ($model->ev_userid != $user->getId())
+            return 'invalid';
+
+        $model->ev_status = 1;
+        $model->save(false);
+        return $this->redirect(['/site/main']);
+    }
+
     public function actionDragCreate($ceid = null, $date = null, $hour = '06', $minute = '00', $allday=false)
     {
         try {
@@ -220,6 +232,10 @@ class StudentEventController extends Controller
         }
     }
 
+    public function actionDelete($id) {
+        return false;
+    }
+
     /**
      * Updates an existing StudentEvent model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -229,6 +245,7 @@ class StudentEventController extends Controller
      */
     public function actionUpdate($id)
     {
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -242,12 +259,6 @@ class StudentEventController extends Controller
         ]);
     }
 
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
 
     /**
      * Finds the StudentEvent model based on its primary key value.
