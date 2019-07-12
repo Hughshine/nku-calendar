@@ -16,6 +16,13 @@ return [
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@frontend/views' => '@frontend/views/yii2-app'
+                ],
+            ],
+        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
