@@ -92,7 +92,9 @@ class StudentEventController extends Controller
                 $Event->allDay = $p->all_day;
                 $events[] = $Event;
             }
+
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            var_dump($events);
         Yii::$app->response->data  =  $events;//Json::encode($events);
 //        header('Content-type: application/json');
 //        echo ;
