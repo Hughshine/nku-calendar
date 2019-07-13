@@ -47,16 +47,6 @@ class CeventController extends Controller
         ]);
     }
 
-    public function actionOverall()
-    {
-        $models = Cevent::find();
-        $count = $models->count();
-        $pager = new Pagination(['totalCount' => $count, 'pageSize' => 3]);
-        $cevents = $models->offset($pager->offset)->limit($pager->limit)->all();
-        return $this->render("overall", ['pager' => $pager, 'cevents' => $cevents]);
-    }
-
-
     public function actionView($id)
     {
         return $this->render('view', [
@@ -64,12 +54,18 @@ class CeventController extends Controller
         ]);
     }
 
+    public function actionOverall()
+    {
+        $models = Cevent::find();
+        $count = $models->count();
+        $pager = new Pagination(['totalCount' => $count, 'pageSize' => 2]);
+        $cevents = $models->offset($pager->offset)->limit($pager->limit)->all();
+        return $this->render("overall", ['pager' => $pager, 'cevents' => $cevents]);
+    }
+
     public function actionDetail($id)
     {
-
-
         $cmt = new Comment();
-
         if ($cmt->load(Yii::$app->request->post())) {
             $cmt->com_time = date('Y-m-d H:i:s',strtotime('+6 hour'));
             $cmt->com_eveid = $id;
@@ -77,7 +73,7 @@ class CeventController extends Controller
             $cmt->save();
         }
         return $this->render('detail', [
-            'model' => $this->findModel($id), 'comments' => $this->findComment($id),'cmt' => $cmt
+            'model' => $this->findModel($id), 'comments' => $this->findComment($id),'cmt' => $cmt,
         ]);
     }
 
@@ -164,13 +160,6 @@ class CeventController extends Controller
         $data['Operation1']['op1_time'] = date('Y-m-d H:i:s',strtotime('+6 hour'));
         $data['Operation1']['op1_status'] = 1;
         $ope->choose($data);
-//        if($ope->load($data)&&$ope->validate()){
-//            $ceve = Cevent::find()->where(['ev_id' => $data->ev_id])->one();
-//            if($ceve->updateCounters(['ev_number' => 1])){
-//                $ope->save();
-//                Yii::$app->session->setFlash('info', '参加活动成功！！');
-//            }
-//        }
         $this->redirect(['overall']);
     }
 
