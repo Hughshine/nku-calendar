@@ -7,6 +7,9 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
+use yii\base\widget;
+use yii\helpers\Url;
+use frontend\widgets\chat\ChatWidget;
 AppAsset::register($this);
 ?>
 <?php $this->beginPage()  ?>
@@ -15,7 +18,7 @@ AppAsset::register($this);
 <head>
     <!-- <link rel="stylesheet" type="text/css" href="css/default.css"> -->
     <script src='js/jquery.js'></script>
-    <script src="js/jquery.min.js"></script>
+<!--    <script src="js/jquery.min.js"></script>-->
     <script src="js/jquery.knob.js"></script>
     <script src="js/jquery.throttle.js"></script>
     <script src="js/jquery.classycountdown.js"></script>
@@ -32,6 +35,32 @@ AppAsset::register($this);
             $("#button_1").show(10);
         });
     </script>
+    <script>
+        $(function () {
+            //说一说
+            $(".j-feed").click(function(){
+                var url = $(this).attr("data-url");
+                var content = $("textarea").val(); //获取文本框内容
+
+                if(content == ''){
+                    $(".field-feed-content").addClass("has-error");
+                    return false;
+                }
+                $.ajax(url,{
+                    type:"post",
+                    dataType:"json",
+                    data:{ content:content },
+                    success:function(data){
+                        if(data.status){
+                            location.reload();
+                        }else{
+                            alert(data.msg);
+                        }
+                    },
+                })
+            })
+        });
+    </script>
 
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
@@ -46,6 +75,110 @@ AppAsset::register($this);
             /*font-family: "华文细黑";*/
             background:url("img/2.png") no-repeat;
             background-size: 100%;
+        }
+        .commit_title{
+            /*font-family: "华文细黑";*/
+            background:url("img/bg_logo.png") no-repeat;
+            background-size:cover;
+        }
+        .timeline {
+            position:relative;
+            margin-bottom:60px;
+        }
+        /* left */
+        .timeline .timeline-left .item {
+            background-color: rgba(240, 240, 240, 0.3);
+            border-right:rgba(240, 240, 240, 0.3) 3px solid;
+            padding:10px;
+            margin-left:50px;
+            margin-bottom:15px;
+            position:relative;
+        }
+        .timeline .timeline-left .item:after {
+            right: 100%;
+            border: solid transparent;
+            content: " ";
+            width: 0; height: 0;
+            position: absolute;
+            border-right-color:rgba(191, 141, 198, 0.06);;
+            border-width: 10px;
+            top: 10px; left:-20px;
+        }
+        .timeline .timeline-left .item:before {
+            right: 100%;
+            border: #ddd 5px solid;
+            content: " ";
+            position: absolute;
+            top: 10px; left:-50px;
+            background-color:#333;
+            width:22px; height:22px;
+            z-index:1;
+
+        }
+        .timeline-left:after {
+            background: #ddd;
+            z-index:0;
+            content: "";
+            display: block;
+            left: 10px;
+            top:0;
+            bottom:0;
+            position: absolute;
+            width: 4px;
+            opacity: 0.35;
+        }
+        .timeline  .timeline-left .timeline-centered-title {
+            float:right;
+            content:' ';
+            clear:both;
+            font-size:19px;
+        }
+
+
+
+        /*tap*/
+        .tap-div{
+            display: none;
+        }
+        .tap-div.active{
+            display: block;
+        }
+
+        .timeline .timeline-left .item:before {
+            border: #ddd 4px solid;
+            left: -46px;
+            width: 16px;
+            height: 16px;
+        }
+        .timeline .item p{
+            margin-bottom:0px;
+            margin-top:10px;
+        }
+        .timeline .timeline-left .noborder{
+            border-right:none;
+        }
+        .timeline .timeline-left .item .singleline{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .timeline .timeline-left .item-light:before {
+            border: #dec0d8  4px solid;
+            left: -46px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+        .slideBox{
+            color:#fff;
+        }
+        .slideBox p{
+            margin: 20px 0px;
+            text-align: left;
+        }
+        .bnlc-img{
+            max-height:500px;
+            max-width: 100%;
         }
     </style>
     <meta charset="utf-8">
@@ -138,10 +271,10 @@ AppAsset::register($this);
                             <a class="js-scroll-trigger" href="#comment">祝福南开</a>
                         </li>
                         <li class="mega-menu" frag="窗口10204">
-                            <a href="/nkrw/list.htm">人物南开</a>
+                            <a class="js-scroll-trigger" href="#services">功能简介</a>
                         </li>
                         <li class="mega-menu" frag="窗口10206">
-                            <a href="http://100.nankai.edu.cn/2018/1128/c10887a115520/page.htm">感恩南开</a>
+                            <a class="js-scroll-trigger" href="#team">关于团队</a>
                         </li>
                     </ul>
                 </nav>
@@ -352,10 +485,31 @@ AppAsset::register($this);
     </script>
 </section>
 <!--  </section> -->
+<section class="index-news commit_title" id="comment">
+    <center>
+        <h1 style="padding-bottom:20px;font-family:华文中宋;border-bottom:1px solid #ddd">我爱南开 <img src="img/commit/100num.png" style="width:60px;">
+        </h1>
+    </center>
+    <div class="container">
+        <header class="text-center">
 
-<section id="comment">
-
+        </header>
+        <div class="body-content">
+            <div class="col-lg-9">
+                <div class="timeline" style="margin-bottom:0px;">
+                    <div class="timeline-left" id="liuyan-div">
+                        <?=ChatWidget::widget()?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <span class="input-group-btn">
+                    <button type="button" data-url="<?=Url::to(['site/add-feed'])?>" class='btn btn-success btn-feed j-feed'>发布</button>
+                </span>
+            </div>
+        </div>
 </section>
+
 
 <section class="content-section bg-primary text-white text-center" id="services">
     <div class="container">
