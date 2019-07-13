@@ -49,6 +49,10 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'aliases' => [
+            'bower' => 'vendor/bower-asset',
+            'npm' => 'vendor/npm-asset',
+        ],
 //        'assetManager' => [
 //            'bundles' => [
 //                'dmstr\web\AdminLteAsset' => [

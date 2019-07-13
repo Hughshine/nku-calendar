@@ -31,6 +31,15 @@ return [
 
         ],
 
+        'assetManager' => [
+            'bundles' => [
+                'dmstr\web\AdminLteAsset' => [
+                    'skin' => 'skin-purple', //配置颜色 skin-blue skin-yellow skin-black
+                ],
+            ],
+        ],
+
+
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,

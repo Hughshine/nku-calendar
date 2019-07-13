@@ -121,7 +121,12 @@ class CeventController extends Controller
                 'config' => [
                     'imagePathFormat' => "/image/{yyyy}{mm}{dd}/{time}{rand:6}",
                 ]
+            ],
+
+            'ueditor' => [
+                'class' => 'common\widgets\ueditor\UEditorAction',
             ]
+
         ];
     }
     /**

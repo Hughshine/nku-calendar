@@ -25,8 +25,6 @@ use kartik\datetime\DateTimePicker;
 
     <?= $form->field($model, 'ev_summary')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'ev_content')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'ev_start_time')->widget(DateTimePicker::classname(), [
         'options' => ['placeholder' => ''],
         'pluginOptions' => [
@@ -53,14 +51,17 @@ use kartik\datetime\DateTimePicker;
 
     <?= $form->field($model, 'ev_label_img')->widget('common\widgets\file_upload\FileUpload',[
         'config'=>[
-
         ]
     ]) ?>
 
-
+    <?=$form->field($model,'ev_content')->widget('common\widgets\ueditor\UEditor',[
+        'options'=>[
+            'initialFrameHeight'=>400,
+        ]
+    ])?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? '发布' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

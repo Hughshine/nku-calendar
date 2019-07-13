@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\CeventSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Cevent Models';
+$this->title = '活动列表';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cevent-model-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Cevent Model', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('发布活动', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

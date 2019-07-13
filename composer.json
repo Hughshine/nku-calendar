@@ -20,7 +20,6 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "dmstr/yii2-adminlte-asset": "2.*",
         "philippfrenzel/yii2fullcalendar":"3.9.0",
-        "bower-asset/moment": "^2.24",
         "fxp/composer-asset-plugin": "*",
         "kartik-v/yii2-widget-datetimepicker": "*"
     },
