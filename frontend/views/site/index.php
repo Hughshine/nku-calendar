@@ -238,15 +238,33 @@ AppAsset::register($this);
                             <a style="position: absolute;top: -52px;"><img src="img/nk100logowhite.png" style="width:150px"></a>
                             <!-- No Data -->
                         </li>
-                        <li class="mega-menu  mega-menu-right1" >
-                        <a class="js-scroll-trigger" href="#page-top">首页</a>
-                        </li>
-                        <li class="mega-menu active" >
-                        <a class="js-scroll-trigger" href="index.php?r=site/login">登录</a>
-                        </li>
-                        <li class="mega-menu   " >
-                        <a class="js-scroll-trigger" href="index.php?r=site/signup">注册</a>
-                        </li>
+                        <?php
+                        if (Yii::$app->user->isGuest) {
+                            echo
+                            '<li class="mega-menu  mega-menu-right1" >
+                            <a class="js-scroll-trigger" href="#page-top">首页</a>
+                            </li>
+                            <li class="mega-menu active" >
+                            <a class="js-scroll-trigger" href="index.php?r=site/login">登录</a>
+                            </li>
+                            <li class="mega-menu   " >
+                            <a class="js-scroll-trigger" href="index.php?r=site/signup">注册</a>
+                            </li>';
+                        } else {
+
+                            echo
+                            '<li class="mega-menu  mega-menu-right1" >
+                            <a href="javascript:void(0);" onclick="document.getElementById(\'myform\').submit();">登出</a>
+                            <form id="myform" method="post" action="http://localhost:8081/nku-calendar/frontend/web/index.php?r=site/logout" value="<?php echo Yii::$app->request->csrfToken ?>">
+                            </form>
+                            </li>
+                            <li class="mega-menu" >
+                            <a class="js-scroll-trigger" href="index.php?r=site/main">我的日程</a>
+                            </li>';
+
+
+                        }
+                        ?>
                         <li class="mega-menu" frag="窗口10202">
                             <a class="js-scroll-trigger" href="#count">倒计时</a>
                         </li>
