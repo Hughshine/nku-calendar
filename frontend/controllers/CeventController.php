@@ -2,15 +2,15 @@
 
 namespace frontend\controllers;
 
-use app\models\Comment;
+use frontend\models\Comment;
 use Yii;
-use app\models\Cevent;
-use app\models\CeventSearch;
+use frontend\models\Cevent;
+use frontend\models\CeventSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\data\Pagination;
-use app\models\Operation1;
+use frontend\models\Operation1;
 use yii\debug\models\search\Db;
 /**
  * CeventController implements the CRUD actions for Cevent model.

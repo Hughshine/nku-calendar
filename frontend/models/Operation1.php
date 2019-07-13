@@ -1,7 +1,8 @@
 <?php
 
-namespace app\models;
+namespace frontend\models;
 
+use common\models\User;
 use Yii;
 
 /**
@@ -39,7 +40,7 @@ class Operation1 extends \yii\db\ActiveRecord
             [['ev_id'],'validateNotchoose','on'=>['cancel']],
             [['op1_time'], 'safe'],
             [['ev_id'], 'exist', 'skipOnError' => true, 'targetClass' => Cevent::className(), 'targetAttribute' => ['ev_id' => 'ev_id']],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Student::className(), 'targetAttribute' => ['user_id' => 'user_id']],
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
 
