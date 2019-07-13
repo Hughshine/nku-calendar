@@ -254,13 +254,14 @@ AppAsset::register($this);
 
                             echo
                             '<li class="mega-menu  mega-menu-right1" >
-                            <a href="//site/logout" method="post">登出</a>
+                            <a href="javascript:void(0);" onclick="document.getElementById(\'myform\').submit();">登出</a>
                             <form id="myform" method="post" action="http://localhost:8081/nku-calendar/frontend/web/index.php?r=site/logout" value="<?php echo Yii::$app->request->csrfToken ?>">
                             </form>
                             </li>
                             <li class="mega-menu" >
-                            <a class="js-scroll-trigger" href="index.php?r=site/logout">我的日程</a>
+                            <a class="js-scroll-trigger" href="index.php?r=site/main">我的日程</a>
                             </li>';
+
 
                         }
                         ?>

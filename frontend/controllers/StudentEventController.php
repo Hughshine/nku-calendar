@@ -62,7 +62,7 @@ class StudentEventController extends Controller
 
             $userid = $user->id;
 
-            $c_participations = Participation::findAll(['user_id' => $userid, 'op1_status' => 0]);
+            $c_participations = Participation::findAll(['user_id' => $userid, 'op1_status' => 1]);
 
             $pevents = StudentEvent::findAll(['ev_userid' => $userid, 'ev_status' => 0]);
 
@@ -73,8 +73,9 @@ class StudentEventController extends Controller
                 $Event = new \yii2fullcalendar\models\Event();
                 $Event->id = $cevent->ev_id;
                 $Event->className = 'inst-event';
-                $Event->title = $cevent->ev_name;
-                $Event->start = $cevent->ev_time;
+                $Event->title = $cevent->ev_title;
+                $Event->start = $cevent->ev_start_time;
+                $Event->end = $cevent->ev_end_time;
                 $Event->color = StudentEventController::NANKAI_PURPLE;
                 $Event->allDay = $cevent->all_day;
                 $events[] = $Event;
@@ -94,7 +95,6 @@ class StudentEventController extends Controller
             }
 
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-            var_dump($events);
         Yii::$app->response->data  =  $events;//Json::encode($events);
 //        header('Content-type: application/json');
 //        echo ;

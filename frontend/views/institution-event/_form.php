@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'ev_time')->textInput() ?>
 
-    <?= $form->field($model, 'ev_name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'ev_title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'ev_adminid')->textInput() ?>
 
