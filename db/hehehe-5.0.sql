@@ -255,11 +255,27 @@ DROP TABLE IF EXISTS `feeds`;
    -- ---------------------------- 
  -- Records of feeds 
  -- ---------------------------- 
- INSERT INTO `feeds` VALUES ('1', '143', '111', '1515747989'); 
- INSERT INTO `feeds` VALUES ('2', '143', 'ewrwer', '1515747989'); 
- INSERT INTO `feeds` VALUES ('3', '143', '1516180609', '1516180609'); 
- INSERT INTO `feeds` VALUES ('4', '143', '1516180609', '1516180609'); 
- INSERT INTO `feeds` VALUES ('5', '143', 'afafs', '1516180609'); 
+ INSERT INTO `feeds` VALUES ('1', '143', '轻轻的我走了，
+正如我轻轻的来；
+我轻轻的招手，
+作别西天的云彩。', '1515747989');
+ INSERT INTO `feeds` VALUES ('2', '143', '那河畔的金柳，
+是夕阳中的新娘；
+波光里的艳影，
+在我的心头荡漾。', '1515747989');
+ INSERT INTO `feeds` VALUES ('3', '143', '那榆荫下的一潭，
+不是清泉，是天上虹；
+揉碎在浮藻间，
+沉淀着彩虹似的梦。', '1516180609');
+ INSERT INTO `feeds` VALUES ('4', '143', '软泥上的青荇，
+油油的在水底招摇；
+在康河的柔波里，
+我甘心做一条水草！', '1516180609');
+ INSERT INTO `feeds` VALUES ('5', '143', '
+但我不能放歌，
+悄悄是别离的笙箫；
+夏虫也为我沉默，
+沉默是今晚的康桥！', '1516180609');
 
 DROP TABLE IF EXISTS `pevent`;
 CREATE TABLE `pevent` (
