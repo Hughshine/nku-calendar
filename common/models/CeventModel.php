@@ -7,6 +7,7 @@ use common\models\base\BaseModel;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
 use yii\behaviors\BlameableBehavior;
+
 /**
  * This is the model class for table "cevent".
  *
@@ -54,6 +55,28 @@ class CeventModel extends BaseModel
 
     }
 
+    public function beforeSave($create)
+    {
+        if(parent::beforeSave($create))
+        {
+            if($this->isNewRecord)
+            {
+                //$this->create_time = date('y-m-d H:m:s');
+                $this->ev_adminid = Yii::$app->user->identity->getId();
+               // $this->status_id = '0';
+            }
+            else{
+                //$this->update_time = date('y-m-d H:m:s');
+                $this->ev_adminid = Yii::$app->user->identity->getId();
+            }
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
     /**
      * @inheritdoc
      */
@@ -75,21 +98,21 @@ class CeventModel extends BaseModel
     public function attributeLabels()
     {
         return [
-            'ev_id' => 'Ev ID',
-            'ev_start_time' => 'Ev Start Time',
-            'ev_title' => 'Ev Title',
-            'ev_adminid' => 'Ev Adminid',
-            'ev_place' => 'Ev Place',
-            'ev_number' => 'Ev Number',
-            'cev_tid' => 'Cev Tid',
-            'ev_maxnumber' => 'Ev Maxnumber',
-            'ev_summary' => 'Ev Summary',
-            'ev_content' => 'Ev Content',
-            'ev_label_img' => 'Ev Label Img',
-            'ev_end_time' => 'Ev End Time',
-            'ev_created_at' => 'Ev Created At',
-            'ev_updated_at' => 'Ev Updated At',
-            'ev_signup_endtime' => 'Ev Signup Endtime',
+            'ev_id' => '活动ID',
+            'ev_start_time' => '活动开始时间',
+            'ev_title' => '活动名称',
+            'ev_adminid' => '发布者',
+            'ev_place' => '活动地点',
+            'ev_number' => '已报名人数',
+            'cev_tid' => '负责老师',
+            'ev_maxnumber' => '活动名额',
+            'ev_summary' => '活动介绍',
+            'ev_content' => '活动内容',
+            'ev_label_img' => '标签图',
+            'ev_end_time' => '活动结束时间',
+            'ev_created_at' => '发布时间',
+            'ev_updated_at' => '更新时间',
+            'ev_signup_endtime' => '报名截至时间',
         ];
     }
 }
