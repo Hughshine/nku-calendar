@@ -259,7 +259,7 @@ AppAsset::register($this);
                             </form>
                             </li>
                             <li class="mega-menu" >
-                            <a class="js-scroll-trigger" href="index.php?r=site/logout">我的日程</a>
+                            <a class="js-scroll-trigger" href="index.php?r=site/main">我的日程</a>
                             </li>';
 
 
