@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColorlibHQ/AdminLTE.git",
-                "reference": "7309e2e5d5f8fb78d97dd5ebf9243f3168ec8f20"
+                "reference": "b1edd9eaf828928dd8bfea8607bfa66f0337aa7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ColorlibHQ/AdminLTE/zipball/7309e2e5d5f8fb78d97dd5ebf9243f3168ec8f20",
-                "reference": "7309e2e5d5f8fb78d97dd5ebf9243f3168ec8f20",
+                "url": "https://api.github.com/repos/ColorlibHQ/AdminLTE/zipball/b1edd9eaf828928dd8bfea8607bfa66f0337aa7b",
+                "reference": "b1edd9eaf828928dd8bfea8607bfa66f0337aa7b",
                 "shasum": ""
             },
             "require": {
@@ -47,7 +47,7 @@
                 "theme",
                 "web"
             ],
-            "time": "2019-06-11T11:52:23+00:00"
+            "time": "2019-06-18T12:15:46+00:00"
         },
         {
             "name": "bower-asset/bootstrap",
@@ -60,8 +60,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/twbs/bootstrap/zipball/68b0d231a13201eb14acd3dc84e51543d16e5f7e",
-                "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e",
-                "shasum": null
+                "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e"
             },
             "require": {
                 "bower-asset/jquery": ">=1.9.1,<4.0"
@@ -82,8 +81,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/fullcalendar/fullcalendar/zipball/3ddb3c8d1461c6b841aed3487ba07d8ba338adb6",
-                "reference": "3ddb3c8d1461c6b841aed3487ba07d8ba338adb6",
-                "shasum": null
+                "reference": "3ddb3c8d1461c6b841aed3487ba07d8ba338adb6"
             },
             "require": {
                 "bower-asset/jquery": ">=2,<4.0",
@@ -105,8 +103,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/fullcalendar/fullcalendar-scheduler/zipball/6ebc6d1ec1d4cc82481e0c57272b70df80330494",
-                "reference": "6ebc6d1ec1d4cc82481e0c57272b70df80330494",
-                "shasum": null
+                "reference": "6ebc6d1ec1d4cc82481e0c57272b70df80330494"
             },
             "require": {
                 "bower-asset/fullcalendar": "~3.9.0",
@@ -129,8 +126,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/RobinHerbots/Inputmask/zipball/5e670ad62f50c738388d4dcec78d2888505ad77b",
-                "reference": "5e670ad62f50c738388d4dcec78d2888505ad77b",
-                "shasum": null
+                "reference": "5e670ad62f50c738388d4dcec78d2888505ad77b"
             },
             "require": {
                 "bower-asset/jquery": ">=1.7"
@@ -151,8 +147,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/15bc73803f76bc53b654b9fdbbbc096f56d7c03d",
-                "reference": "15bc73803f76bc53b654b9fdbbbc096f56d7c03d",
-                "shasum": null
+                "reference": "15bc73803f76bc53b654b9fdbbbc096f56d7c03d"
             },
             "type": "bower-asset",
             "license": [
@@ -170,8 +165,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/components/jqueryui/zipball/44ecf3794cc56b65954cc19737234a3119d036cc",
-                "reference": "44ecf3794cc56b65954cc19737234a3119d036cc",
-                "shasum": null
+                "reference": "44ecf3794cc56b65954cc19737234a3119d036cc"
             },
             "require": {
                 "bower-asset/jquery": ">=1.6"
@@ -192,8 +186,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/moment/moment/zipball/96d0d6791ab495859d09a868803d31a55c917de1",
-                "reference": "96d0d6791ab495859d09a868803d31a55c917de1",
-                "shasum": null
+                "reference": "96d0d6791ab495859d09a868803d31a55c917de1"
             },
             "type": "bower-asset",
             "license": [
@@ -211,8 +204,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/bestiejs/punycode.js/zipball/38c8d3131a82567bfef18da09f7f4db68c84f8a3",
-                "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3",
-                "shasum": null
+                "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3"
             },
             "type": "bower-asset"
         },
@@ -227,8 +219,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/yiisoft/jquery-pjax/zipball/aef7b953107264f00234902a3880eb50dafc48be",
-                "reference": "aef7b953107264f00234902a3880eb50dafc48be",
-                "shasum": null
+                "reference": "aef7b953107264f00234902a3880eb50dafc48be"
             },
             "require": {
                 "bower-asset/jquery": ">=1.8"
@@ -403,28 +394,30 @@
         },
         {
             "name": "doctrine/lexer",
-            "version": "1.0.x-dev",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/lexer.git",
-                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8"
+                "reference": "975c0e44ab85fb72acc5be2082464e74cade966b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/1febd6c3ef84253d7c815bed85fc622ad207a9f8",
-                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/975c0e44ab85fb72acc5be2082464e74cade966b",
+                "reference": "975c0e44ab85fb72acc5be2082464e74cade966b",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": "^7.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5"
+                "doctrine/coding-standard": "^6.0",
+                "phpstan/phpstan": "^0.11.8",
+                "phpunit/phpunit": "^8.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -459,7 +452,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-06-08T11:03:04+00:00"
+            "time": "2019-06-11T06:26:51+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -1139,12 +1132,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "75b795c7c9b959bd99abddfa0f657f6565f97d3a"
+                "reference": "77bbfb24cce61d267428e8277329c2e7d54a6dfd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/75b795c7c9b959bd99abddfa0f657f6565f97d3a",
-                "reference": "75b795c7c9b959bd99abddfa0f657f6565f97d3a",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/77bbfb24cce61d267428e8277329c2e7d54a6dfd",
+                "reference": "77bbfb24cce61d267428e8277329c2e7d54a6dfd",
                 "shasum": ""
             },
             "require": {
@@ -1231,7 +1224,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2019-07-02T20:29:09+00:00"
+            "time": "2019-07-12T11:15:24+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -3466,12 +3459,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "59606f15bd8bbc808eefb06519dc77cf9677e1e6"
+                "reference": "0a8153b7ec0b549a386d040278a0b6d6f18b5760"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/59606f15bd8bbc808eefb06519dc77cf9677e1e6",
-                "reference": "59606f15bd8bbc808eefb06519dc77cf9677e1e6",
+                "url": "https://api.github.com/repos/symfony/console/zipball/0a8153b7ec0b549a386d040278a0b6d6f18b5760",
+                "reference": "0a8153b7ec0b549a386d040278a0b6d6f18b5760",
                 "shasum": ""
             },
             "require": {
@@ -3493,7 +3486,7 @@
                 "symfony/config": "^3.4|^4.0|^5.0",
                 "symfony/dependency-injection": "^3.4|^4.0|^5.0",
                 "symfony/event-dispatcher": "^4.3",
-                "symfony/lock": "^3.4|^4.0|^5.0",
+                "symfony/lock": "^4.4|^5.0",
                 "symfony/process": "^3.4|^4.0|^5.0",
                 "symfony/var-dumper": "^4.3|^5.0"
             },
@@ -3533,7 +3526,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2019-06-27T17:38:50+00:00"
+            "time": "2019-07-10T18:47:17+00:00"
         },
         {
             "name": "symfony/css-selector",
