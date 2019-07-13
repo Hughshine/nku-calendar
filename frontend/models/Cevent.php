@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "cevent".
@@ -18,7 +19,7 @@ use Yii;
  * @property Admin $evAdmin
  * @property Event $ev
  */
-class Cevent extends \app\models\Event
+class Cevent extends ActiveRecord
 {
     /**
      * @inheritdoc
