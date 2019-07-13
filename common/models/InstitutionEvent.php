@@ -8,8 +8,9 @@ use Yii;
  * This is the model class for table "cevent".
  *
  * @property int $ev_id
- * @property string $ev_time
- * @property string $ev_name
+ * @property string $ev_start_time
+ * @property string $ev_end_time
+ * @property string $ev_title
  * @property int $ev_adminid
  * @property string $ev_place
  * @property int $ev_number

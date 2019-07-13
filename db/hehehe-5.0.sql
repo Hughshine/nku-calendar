@@ -1,22 +1,3 @@
-/*
- Navicat Premium Data Transfer
-
- Source Server         : localhost_3306
- Source Server Type    : MySQL
- Source Server Version : 100137
- Source Host           : localhost:3306
- Source Schema         : yii2
-
- Target Server Type    : MySQL
- Target Server Version : 100137
- File Encoding         : 65001
-
- Date: 13/07/2019 17:20:20
-*/
-
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
-
 -- ----------------------------
 -- Table structure for admin
 -- ----------------------------
@@ -109,37 +90,6 @@ CREATE TABLE `evaluation`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Table structure for event
--- ----------------------------
-DROP TABLE IF EXISTS `event`;
-CREATE TABLE `event`  (
-  `ev_time` timestamp(0) NULL DEFAULT NULL,
-  `ev_title` varchar(1024) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `ev_id` int(11) NOT NULL,
-  `ev_adminid` int(11) NOT NULL,
-  `ev_place` varchar(1024) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `ev_maxnumber` int(11) NOT NULL,
-  `ev_number` int(11) NULL DEFAULT NULL,
-  `ev_content` varchar(1024) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`ev_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Table structure for migration
--- ----------------------------
-DROP TABLE IF EXISTS `migration`;
-CREATE TABLE `migration`  (
-  `version` varchar(180) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `apply_time` int(11) NULL DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of migration
--- ----------------------------
-INSERT INTO `migration` VALUES ('m000000_000000_base', 1498718139);
-INSERT INTO `migration` VALUES ('m130524_201442_init', 1498718158);
-
--- ----------------------------
 -- Table structure for operation1
 -- ----------------------------
 DROP TABLE IF EXISTS `operation1`;
@@ -159,24 +109,6 @@ CREATE TABLE `operation1`  (
 -- ----------------------------
 INSERT INTO `operation1` VALUES (1, 1, '0000-00-00 00:00:00', 1, 1);
 INSERT INTO `operation1` VALUES (1, 143, '2019-07-13 11:09:02', 1, 2);
-
--- ----------------------------
--- Table structure for operation2
--- ----------------------------
-DROP TABLE IF EXISTS `operation2`;
-CREATE TABLE `operation2`  (
-  `user_id` int(11) NOT NULL,
-  `ev_id` int(11) NOT NULL,
-  `op2_time` timestamp(0) NULL DEFAULT NULL,
-  `op2_status` int(11) NOT NULL,
-  `op2_create_time` timestamp(0) NULL DEFAULT NULL,
-  `op2_id` int(11) NOT NULL,
-  PRIMARY KEY (`op2_id`) USING BTREE,
-  INDEX `操作3_FK`(`user_id`) USING BTREE,
-  INDEX `操作4_FK`(`ev_id`) USING BTREE,
-  CONSTRAINT `f10` FOREIGN KEY (`user_id`) REFERENCES `student` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `f11` FOREIGN KEY (`ev_id`) REFERENCES `pevent` (`ev_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for pevent
@@ -284,6 +216,3 @@ SET FOREIGN_KEY_CHECKS = 1;
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES (143, 'Kraken', 'X7dsEeNDXJQ0aJyh4ENzR40Ag2U-7W8C', '$2y$13$pAdgPmuGr2GoUG9NewkEzOZeeXvr5YUcNf9Rsw4oguecJfg2Nn6Um', NULL, '1309123499@qq.com', 10, 10, '2019-07-07 11:43:46', '0000-00-00 00:00:00', 0, NULL, 0, 2147483647, '计算机学院');
-
-SET FOREIGN_KEY_CHECKS = 1;
-
