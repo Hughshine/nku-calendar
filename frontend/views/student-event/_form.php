@@ -44,8 +44,15 @@ use kartik\datetime\DateTimePicker;
         ]); ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('更新', ['class' => 'btn btn-success']) ?>
+        <?php  //= Html::Button('删除', ['class' => 'btn btn-danger', 'id' => 'stu-event-delete']) ?>
     </div>
+
+    <script>
+        $('#stu-event-delete').on('click', function (event) {
+            $.get("index.php?r=student-event/change-status", function( data ){alert(data);} );
+        })
+    </script>
 
     <?php ActiveForm::end(); ?>
 
