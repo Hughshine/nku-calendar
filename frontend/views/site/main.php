@@ -29,11 +29,11 @@ $('#external-events .fc-event').each(function() {
         stick: true // maintain when user navigates (see docs on the renderEvent method)
     });
     // make the event draggable using jQuery UI
-    $(this).draggable({
-        zIndex: 999,
-        revert: true,      // will cause the event to go back to its
-        revertDuration: 0  //  original position after the drag
-    });
+        $(this).draggable({
+            zIndex: 999,
+            revert: true,      // will cause the event to go back to its
+            revertDuration: 0  //  original position after the drag
+        });
 });
 
 EOF;
@@ -193,7 +193,7 @@ EOF;
                         'selectable' => true,
                         'selectHelper' => true,
                         'droppable' => true,
-                        'editable' => true,
+//                        'editable' => true,
                         'drop' => new JsExpression($JSDropEvent),
                         'eventDrop' => new JsExpression($JsEventDrop),
                         'firstDay' => 7,

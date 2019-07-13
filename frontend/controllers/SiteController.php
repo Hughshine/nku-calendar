@@ -34,7 +34,7 @@ class SiteController extends Controller
      */
     public function actionAddFeed()
     {
-        $model=new FeedsForm();
+        $model=new FeedForm();
         $model->content=Yii::$app->request->post('content');
         if ($model->validate()){
             if ($model->create()){
