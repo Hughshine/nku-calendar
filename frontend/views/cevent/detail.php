@@ -94,11 +94,10 @@ use yii\helpers\Html;
                                     echo $user->username;?></li>
                                 <li class="list-inline-item"><?php echo $comment->com_time;?></li>
                             </ul>
-                            <h6><a class="text-dark" href="blog-single.html"><?php echo $comment->com_content;?></a></h6>
+                            <h4><?php echo $comment->com_content;?></h4>
                         </div>
                     </div>
                     <?php endforeach;?>
-
                 </div>
             </div>
         </div>

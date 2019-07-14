@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\InstitutionEvent */
 
-$this->title = '【学院活动】'.$model->ev_name.':';
+$this->title = '【学院活动】'.$model->ev_title.':';
 $this->params['breadcrumbs'][] = ['label' => 'Institution Events', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -19,8 +19,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
 //            'ev_id',
-            'ev_time',
-            'ev_name',
+            'ev_start_time',
+            'ev_title',
             'ev_adminid',
             'ev_place',
 //            'ev_number',
