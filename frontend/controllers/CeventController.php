@@ -5,7 +5,7 @@ namespace frontend\controllers;
 use frontend\models\Comment;
 use Yii;
 use frontend\models\Cevent;
-use frontend\models\CeventSearch;
+use common\models\CeventSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

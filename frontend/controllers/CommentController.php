@@ -4,7 +4,6 @@ namespace frontend\controllers;
 
 use Yii;
 use frontend\models\Comment;
-use frontend\models\CommentSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

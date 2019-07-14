@@ -1,6 +1,6 @@
 <?php
 use yii\helpers\Html;
-use common\models\User;
+use backend\models\Admin;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -232,7 +232,7 @@ use common\models\User;
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
                         <span class="hidden-xs">
-                            <?= User::returnName()?>
+                            <?= \backend\models\Admin::returnName()?>
                         </span>
                     </a>
                     <ul class="dropdown-menu">
@@ -242,8 +242,8 @@ use common\models\User;
                                  alt="User Image"/>
 
                             <p>
-                                <?= User::returnName()?> - <?= User::returnDepartmentName()?>
-                                <small>Member since <?= User::returnTime()?></small>
+                                <?=\backend\models\Admin::returnName()?> - <?= \backend\models\Admin::returnDepartmentName()?>
+                                <small>Member since <?= Admin::returnTime()?></small>
                             </p>
                         </li>
                         <!-- Menu Body -->

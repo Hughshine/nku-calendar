@@ -9,7 +9,7 @@ return yii\helpers\ArrayHelper::merge(
         'components' => [
             'request' => [
                 // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-                'cookieValidationKey' => 'CHL_pULb2O-nUKgqBaFOPvVub0uH4fnG',
+                'cookieValidationKey' => '0sHHLYp9QooK6nzKUJfSxYTg4uavb1jp',
             ],
         ],
     ]

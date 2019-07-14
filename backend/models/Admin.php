@@ -1,5 +1,5 @@
 <?php
-namespace common\models;
+namespace backend\models;
 
 use Yii;
 use yii\base\NotSupportedException;
@@ -23,7 +23,7 @@ use common\models\base\BaseModel;
  * @property integer $department
  * @property string $password write-only password
  */
-class User extends BaseModel implements IdentityInterface
+class Admin extends BaseModel implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
@@ -34,7 +34,7 @@ class User extends BaseModel implements IdentityInterface
      */
     public static function tableName()
     {
-        return '{{%user}}';
+        return '{{%admin}}';
     }
 
     /**
@@ -65,7 +65,7 @@ class User extends BaseModel implements IdentityInterface
     public static function returnName()
     {
         $id = Yii::$app->user->getId();
-        $user=User::findOne(array('id'=>$id));
+        $user=Admin::findOne(array('id'=>$id));
         return  $user->username;
         //return 'username';
     }
@@ -73,7 +73,7 @@ class User extends BaseModel implements IdentityInterface
     public static function returnDepartmentName()
     {
         $id = Yii::$app->user->getId();
-        $user=User::findOne(array('id'=>$id));
+        $user=Admin::findOne(array('id'=>$id));
         return  $user->department;
         //return 'username';
     }
@@ -81,7 +81,7 @@ class User extends BaseModel implements IdentityInterface
     public static function returnTime()
     {
         $id = Yii::$app->user->getId();
-        $user=User::findOne(array('id'=>$id));
+        $user=Admin::findOne(array('id'=>$id));
         return  $user->created_at;
         //return 'username';
     }

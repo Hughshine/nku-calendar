@@ -232,7 +232,7 @@ use common\models\User;
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
                         <span class="hidden-xs">
-                            <?= User::returnName()?>
+                            <?= \frontend\models\User::returnName()?>
                         </span>
                     </a>
                     <ul class="dropdown-menu">
@@ -242,8 +242,8 @@ use common\models\User;
                                  alt="User Image"/>
 
                             <p>
-                                <?= User::returnName()?> - <?= User::returnDepartmentName()?>
-                                <small>Member since <?= User::returnTime()?></small>
+                                <?= \frontend\models\User::returnName()?> - <?= \frontend\models\User::returnDepartmentName()?>
+                                <small>Member since <?= \frontend\models\User::returnTime()?></small>
                             </p>
                         </li>
                         <!-- Menu Body -->

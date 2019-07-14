@@ -9,6 +9,7 @@ use common\models\CeventSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use backend\models\Admin;
 
 /**
  * CeventController implements the CRUD actions for CeventModel model.
@@ -91,12 +92,23 @@ class CeventController extends Controller
     {
         $model = $this->findModel($id);
         $teacher=TeacherModel::getAllTea();
+        $adminid=$model->ev_adminid;
+        $userid = Yii::$app->user->getId();
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->ev_id]);
         } else {
-            return $this->render('update', [
-                'model' => $model,'teacher'=>$teacher,
-            ]);
+            if($adminid!=$userid) {
+                Yii::$app->session->setFlash('info', '不能修改其他学院的活动！！');
+                return $this->render('view', [
+                    'model' => $this->findModel($id),
+                ]);
+            }
+            else {
+                return $this->render('update', [
+                    'model' => $model, 'teacher' => $teacher,
+                ]);
+            }
         }
     }
 
@@ -108,9 +120,22 @@ class CeventController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        $model = $this->findModel($id);
+        $adminid=$model->ev_adminid;
+        $userid = Yii::$app->user->getId();
+        $searchModel = new CeventSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        if($adminid!=$userid) {
+            Yii::$app->session->setFlash('info', '不能删除其他学院的活动！！');
+            return $this->render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        }
+        else {
+            $this->findModel($id)->delete();
+            return $this->redirect(['index']);
+        }
     }
 
     public function actions()

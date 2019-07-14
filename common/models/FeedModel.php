@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use frontend\models\User;
 use Yii;
 use common\models\base\BaseModel;
 /**
@@ -36,7 +37,7 @@ class FeedModel extends BaseModel
     
     public function getUser()
     {
-        return $this->hasOne(User::className(), ['id'=>'user_id']); 
+        return $this->hasOne(User::classname(), ['id'=>'user_id']);
     }
     /**
      * @inheritdoc
