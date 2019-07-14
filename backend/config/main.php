@@ -58,6 +58,8 @@ return [
                 ],
             ],
         ],
+
+
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -70,5 +72,10 @@ return [
         ],
         */
     ],
-    'params' => $params,
+    'aliases' => [
+        '@bower' => '@vendor/bower-asset',
+        '@npm' => '@vendor/npm-asset',
+    ],
+
+'params' => $params,
 ];

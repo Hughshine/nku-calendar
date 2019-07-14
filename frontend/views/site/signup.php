@@ -6,30 +6,46 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\web\View;
+use yii\helpers\Url;
 
-$this->title = 'Signup';
+$this->title = '注册';
 $this->params['breadcrumbs'][] = $this->title;
+
+$events = array();
+//Testing
+$Event = new \yii2fullcalendar\models\Event();
+$Event->id = 1;
+$Event->title = 'Testing';
+$Event->start = date('Y-m-d\Th:m:s\Z');
+$events[] = $Event;
+
+$Event = new \yii2fullcalendar\models\Event();
+$Event->id = 2;
+$Event->title = 'Testing';
+$Event->start = date('Y-m-d\Th:m:s\Z',strtotime('tomorrow 6am'));
+$events[] = $Event;
 ?>
-<div class="site-signup">
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="login-box">
+    <div class="login-logo">
+        <a href="#"><b><?= Html::encode($this->title) ?></b></a>
+    </div>
 
-    <p>Please fill out the following fields to signup:</p>
+    <div class="login-box-body">
+        <!--        <div class="col-lg-5">-->
+        <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+        <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+        <?= $form->field($model, 'email') ?>
 
-                <?= $form->field($model, 'email') ?>
+        <?= $form->field($model, 'password')->passwordInput() ?>
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
+        <div class="form-group">
+            <?= Html::submitButton('注册', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
         </div>
+
+        <?php ActiveForm::end(); ?>
+        <!--        </div>-->
     </div>
 </div>
