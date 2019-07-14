@@ -46,7 +46,7 @@ use common\models\User;
                     [
                         'label' => 'Some tools',
                         'icon' => 'share',
-                        'url' => '#',git
+                        'url' => '#',
                         'items' => [
                             ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
                             ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
