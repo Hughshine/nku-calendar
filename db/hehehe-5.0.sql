@@ -166,15 +166,16 @@ CREATE TABLE `user`  (
   `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `role` smallint(6) NOT NULL DEFAULT 10,
   `status` smallint(6) NOT NULL DEFAULT 10,
-  `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0),
-  `updated_at` timestamp(0) NOT NULL,
-  `gender` smallint(2) NOT NULL,
+  `created_at` int(20),
+  `updated_at` int(20),
+  `gender` smallint(3) NOT NULL DEFAULT 3,-- 3就是性别默认为保密
   `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `identity` smallint(6) NOT NULL,
+  `identity` smallint(6) NOT NULL DEFAULT 1,-- 1就是默认为学生，不允许注册为老师
   `phone` int(255) NULL DEFAULT NULL,
   `department` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 144 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
 
 DROP TABLE IF EXISTS `feeds`; 
  CREATE TABLE `feeds` ( 
@@ -231,4 +232,6 @@ SET FOREIGN_KEY_CHECKS = 1;
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (143, 'Kraken', 'X7dsEeNDXJQ0aJyh4ENzR40Ag2U-7W8C', '$2y$13$pAdgPmuGr2GoUG9NewkEzOZeeXvr5YUcNf9Rsw4oguecJfg2Nn6Um', NULL, '1309123499@qq.com', 10, 10, '2019-07-07 11:43:46', '0000-00-00 00:00:00', 0, NULL, 0, 2147483647, '计算机学院');
+INSERT INTO `user` VALUES (143, 'Kraken', 'X7dsEeNDXJQ0aJyh4ENzR40Ag2U-7W8C', '$2y$13$pAdgPmuGr2GoUG9NewkEzOZeeXvr5YUcNf9Rsw4oguecJfg2Nn6Um', NULL, '1309123499@qq.com', 10, 10, NULL, NULL, 0, NULL, 0, 2147483647, '计算机学院');
+
+SET FOREIGN_KEY_CHECKS = 1;

@@ -58,6 +58,8 @@ return [
                 ],
             ],
         ],
+
+
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -74,5 +76,6 @@ return [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
     ],
-    'params' => $params,
+'params' => $params,
+
 ];
