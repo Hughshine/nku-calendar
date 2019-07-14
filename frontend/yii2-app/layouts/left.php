@@ -1,12 +1,3 @@
-<?php
-use yii\helpers\Html;
-use common\models\User;
-
-/* @var $this \yii\web\View */
-/* @var $content string */
-?>
-
-
 <aside class="main-sidebar">
 
     <section class="sidebar">
@@ -17,8 +8,8 @@ use common\models\User;
                 <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
             </div>
             <div class="pull-left info">
-                <p><?= User::returnDepartmentName()?></p>
-
+                <p>Alexander Pierce</p>
+4
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -39,9 +30,10 @@ use common\models\User;
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
-                    ['label' => '南开大学百年校庆活动', 'options' => ['class' => 'header']],
-                    ['label' => '个人活动日历', 'icon' => 'file-code-o', 'url' => ['site/main']],
-                    ['label' => '院校活动总览', 'icon' => 'dashboard', 'url' => ['cevent/overall']],
+                    ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
+                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+                    ['label' => '院校活动', 'icon' => 'dashboard', 'url' => ['/cevent/overall']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Some tools',
