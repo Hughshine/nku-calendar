@@ -2,7 +2,7 @@
 namespace backend\controllers;
 
 use Yii;
-use yii\web\Controller;
+
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
@@ -20,13 +20,15 @@ class SiteController extends BaseController
         return [
             'access' => [
                 'class' => AccessControl::className(),
+                'only' => ['logout', 'signup'],
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['signup'],
                         'allow' => true,
+                        'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -42,13 +44,17 @@ class SiteController extends BaseController
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function actions()
     {
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
+            ],
+            'captcha' => [
+                'class' => 'yii\captcha\CaptchaAction',
+                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
     }
@@ -63,6 +69,17 @@ class SiteController extends BaseController
         return $this->render('index');
     }
 
+    public function actionMain()
+    {
+        $this->layout = 'main';
+        if (Yii::$app->user->isGuest)
+        {
+            return $this->redirect('index.php?r=site%2Flogin');
+        }
+        return $this->render('main');
+
+    }
+
     /**
      * Login action.
      *
@@ -70,7 +87,7 @@ class SiteController extends BaseController
      */
     public function actionLogin()
     {
-       
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
