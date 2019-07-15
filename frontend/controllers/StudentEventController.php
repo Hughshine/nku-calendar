@@ -168,17 +168,17 @@ class StudentEventController extends Controller
         }
     }
 
-    public function actionChangeStatus($id)
-    {
-        $user = Yii::$app->user->identity;
-        $model = StudentEvent::findOne(['ev_id' => $id]);
-        if ($model->ev_userid != $user->getId())
-            return 'invalid';
-
-        $model->ev_status = 1;
-        $model->save(false);
-        return $this->redirect(['/site/main']);
-    }
+//    public function actionChangeStatus($id)
+//    {
+//        $user = Yii::$app->user->identity;
+//        $model = StudentEvent::findOne(['ev_id' => $id]);
+//        if ($model->ev_userid != $user->getId())
+//            return 'invalid';
+//
+//        $model->ev_status = 1;
+//        $model->save(false);
+//        return $this->redirect(['/site/main']);
+//    }
 
     public function actionDragCreate($ceid = null, $date = null, $hour = '06', $minute = '00', $allday=false)
     {
@@ -235,7 +235,15 @@ class StudentEventController extends Controller
     }
 
     public function actionDelete($id) {
-        return false;
+        $user = Yii::$app->user->identity;
+        $model = StudentEvent::findOne(['ev_id' => $id]);
+        if ($model->ev_userid != $user->getId())
+            return 'invalid';
+
+        $model->ev_status = 1;
+        $model->save(false);
+        Yii::$app->session->setFlash('success', '删除成功');
+        return $this->redirect(['/site/main']);
     }
 
     /**

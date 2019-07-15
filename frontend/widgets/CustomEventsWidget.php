@@ -34,12 +34,13 @@ class CustomEventsWidget extends Widget
 
     public function run()
     {
-        $content = '<div class="left" id="external-events">  <h4>日常任务</h4>';
+        $content = '<div class="left" id="external-events">  <h4>日常任务[limits:5]</h4>';
         $count = 0;
         foreach($this->events as $e) {
-            $content .= '<div class=\'fc-event ui-draggable ui-draggable-handle\' style="background-color:'.$this->colors[$e->ev_color].';" eventid='.$e->ev_id.'>';
+            $content .= '<div><div class=\'fc-event ui-draggable ui-draggable-handle\' style="background-color:'.$this->colors[$e->ev_color].';" eventid='.$e->ev_id.'>';
             $content .= $e->ev_name;
             $content .= '</div>';
+            $content .= '<a href="/nku-calendar/frontend/web/index.php?r=custom-event%2Fdelete&id='.$e->ev_id.'" title="删除" aria-label="删除" data-pjax="0" data-confirm="您确定要删除此项吗？" data-method="post">删除</a></div>';
             $count++;
             if($count>=CustomEventsWidget::LIMIT)
                 break;

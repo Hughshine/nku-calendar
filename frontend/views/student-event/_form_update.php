@@ -45,7 +45,13 @@ use kartik\datetime\DateTimePicker;
 
     <div class="form-group">
         <?= Html::submitButton('更新', ['class' => 'btn btn-success']) ?>
+        <?= Html::a('删除',['student-event/delete', 'id'=>$model->ev_id], ['id'=>'stu-event-delete', 'class'=>'btn btn-danger', 'title'=>"删除",'aria-label'=>"删除",'data-pjax'=>"0",'data-confirm'=>"您确定要删除此项吗？",'data-method'=>"post"]) ?>
     </div>
+    <script>
+        // $('#stu-event-delete').on('click', function (event) {
+        //     $.post("index.php?r=student-event%2Fdelete&id="+$(this).attr('eventid'));
+        // })
+    </script>
 
     <?php ActiveForm::end(); ?>
 

@@ -114,9 +114,15 @@ class CustomEventController extends Controller
      */
     public function actionDelete($id)
     {
+        $custom_event = CustomEvent::findOne(['ev_id' => $id]);
+        if(!$custom_event) return null;
+        if($custom_event->ev_userid != Yii::$app->user->identity->getId()) {
+            Yii::$app->session->setFlash('error','无效');
+            return null;
+        }
         $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        Yii::$app->session->setFlash('success','删除成功');
+        return $this->redirect(['site/main']);
     }
 
     /**
