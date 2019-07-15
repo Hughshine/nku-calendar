@@ -15,7 +15,7 @@ use yii\helpers\Html;
 class CustomEventsWidget extends Widget
 {
     public $title='default';//列表标题
-    const LIMIT=5;//限制数量
+    const LIMIT=10;//限制数量
     public $option='';//组件类型
     public $events = array();
 
@@ -34,7 +34,7 @@ class CustomEventsWidget extends Widget
 
     public function run()
     {
-        $content = '<div class="left" id="external-events">  <h4>日常任务[limits:5]</h4>';
+        $content = '<div class="left" id="external-events">  <h4>日常任务[limits:10]</h4>';
         $count = 0;
         foreach($this->events as $e) {
             $content .= '<div><div class=\'fc-event ui-draggable ui-draggable-handle\' style="background-color:'.$this->colors[$e->ev_color].';" eventid='.$e->ev_id.'>';
