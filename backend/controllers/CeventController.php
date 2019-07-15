@@ -63,6 +63,13 @@ class CeventController extends Controller
      */
     public function actionView($id)
     {
+        return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
+    public function actionAjaxView($id)
+    {
         return $this->renderAjax('view', [
             'model' => $this->findModel($id),
         ]);
@@ -87,13 +94,7 @@ class CeventController extends Controller
         }
     }
 
-    /**
-     * Updates an existing CeventModel model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionUpdate($id)
+    public function actionAjaxUpdate($id)
     {
         $model = $this->findModel($id);
         $teacher=TeacherModel::getAllTea();
@@ -112,6 +113,31 @@ class CeventController extends Controller
             }
             else {
                 return $this->renderAjax('update', [
+                    'model' => $model, 'teacher' => $teacher,
+                ]);
+            }
+        }
+    }
+
+    public function actionUpdate($id)
+    {
+        $model = $this->findModel($id);
+        $teacher=TeacherModel::getAllTea();
+        $adminid=$model->ev_adminid;
+        $userid = Yii::$app->user->getId();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save(false)) {
+            Yii::$app->session->setFlash('success', '修改成功');
+            return $this->redirect(['index']);
+        } else {
+            if($adminid!=$userid) {
+                Yii::$app->session->setFlash('info', '不能修改其他学院的活动！！');
+                return $this->render('index', [
+                    'model' => $this->findModel($id),
+                ]);
+            }
+            else {
+                return $this->render('update', [
                     'model' => $model, 'teacher' => $teacher,
                 ]);
             }

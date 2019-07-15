@@ -77,7 +77,7 @@ function(calEvent, jsEvent, view) {
      
             $('#modal').modal('show')
             .find('#modalContent')
-            .load('index.php?r=cevent/update&id='+calEvent.id);
+            .load('index.php?r=cevent/ajax-update&id='+calEvent.id);
 }
 
 EOF;
