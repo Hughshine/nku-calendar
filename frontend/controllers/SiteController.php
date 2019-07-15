@@ -42,7 +42,7 @@ class SiteController extends Controller
             }
         }
      
-        return json_encode(['status'=>false,'msg'=>'留言发布失败']);
+        return json_encode(['status'=>false,'msg'=>'请先登录哦']);
     }
 
     public function behaviors()
