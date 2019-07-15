@@ -48,45 +48,6 @@ $this->registerJs($DragJS);
         Modal::end();
         ?>
         <?php
-        //        $JSCode = <<<EOF
-        //function(start, end) {
-        //    var title = prompt('Event Title:');
-        //    var eventData;
-        //    if (title) {
-        //        eventData = {
-        //            title: title,
-        //            start: start,
-        //            end: end
-        //        };
-        //        $('#w0').fullCalendar('renderEvent', eventData, true);
-        //    }
-        //    $('#w0').fullCalendar('unselect');
-        //}
-        //EOF;
-        $JSDropEvent = <<<EOF
-function(date, jsEvent, draggedEl, resourceId) { 
-    ceid = draggedEl.helper.attr('eventid');
-    var year = date.toDate().getFullYear();
-    var month = date.toDate().getMonth() + 1;
-    var day = date.toDate().getDate();
-    var hour = (date.toDate().getHours()+16)%24;
-    var minute = date.toDate().getMinutes();    
-    var date = $(this).attr('data-date');
-    console.log(date);
-    
-//    alert(draggedEl.attr('eventid'));
-    
-    $.get("index.php?r=student-event/drag-create&date="+ year+"-"+month+"-"+day+"&hour="+hour+"&minute="+minute+"&ceid="+ceid, function( data ){console.log(data);} );
-}
-EOF;
-        $JsEventDrop = <<<EOF
-function(event, delta, revertFunc, jsEvent, ui, view) {
-        console.log(event);
-//      alert("eventDrop: " + event.start.format());
-    $.get("index.php?r=student-event/update&date="+ date.format()+"&ceid="+ceid, function( data ){alert(data);} );
-
-    }
-EOF;
 
 
         //        $JSDropEvent = <<<EOF
@@ -113,41 +74,12 @@ function(calEvent, jsEvent, view) {
 
     // change the border color just for fun
 //    $(this).css('border-color', 'red');
-       if(calEvent.className.indexOf('inst-event') < 0){
+     
             $('#modal').modal('show')
             .find('#modalContent')
-            .load('index.php?r=student-event/update&id='+calEvent.id);
-       } else {
-            $('#modal').modal('show')
-            .find('#modalContent')
-            .load('index.php?r=institution-event/view&id='+calEvent.id);
-
-       }
-               
-
+            .load('index.php?r=cevent/update&id='+calEvent.id);
 }
 
-EOF;
-        $dayClick = <<<EOF
-function(date, allDay, jsEvent, view) { //TODO: how to know allday event
-//        var year = date.toDate().getFullYear();
-//        var month = date.getMonth();
-//        var day = date.getDay();
-//        var ALLDAY = allDay;
-//        console.log(allDay);
-//        console.log(jsEvent);
-//        console.log(view);
-        var hour = (date.toDate().getHours()+16)%24;
-        var minute = date.toDate().getMinutes();
-        
-        var date = $(this).attr('data-date');
-
-        $('#modal').modal('show')
-            .find('#modalContent')
-            .load('index.php?r=student-event/create&date='+date+'&hour='+hour+'&minute='+minute+'&allday=false');
-            
-            //'+year+'-'+month+'-'+day
-    }
 EOF;
 
 
@@ -195,7 +127,7 @@ EOF;
                         'eventClick' => new JsExpression($JSEventClick),
                         'defaultDate' => date('Y-m-d')
                     ],
-                    'ajaxEvents' => Url::toRoute(['/student-event/json-calendar'])
+                    'ajaxEvents' => Url::toRoute(['/cevent/json-calendar'])
                 ));
                 ?>
             </div>

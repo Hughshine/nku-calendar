@@ -66,19 +66,22 @@ class SiteController extends BaseController
      */
     public function actionIndex()
     {
-        return $this->render('index');
-    }
-
-    public function actionMain()
-    {
-        $this->layout = 'main';
         if (Yii::$app->user->isGuest)
         {
             return $this->redirect('index.php?r=site%2Flogin');
         }
-        return $this->render('main');
-
+        return $this->render('index');
     }
+//
+//    public function actionMain()
+//    {
+//        $this->layout = 'main';
+//        if (Yii::$app->user->isGuest)
+//        {
+//            return $this->redirect('index.php?r=site%2Flogin');
+//        }
+//        return $this->render('main');
+//    }
 
     /**
      * Login action.

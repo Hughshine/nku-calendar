@@ -60,7 +60,7 @@ class CeventController extends Controller
         $models = Cevent::find();
         $count = $models->count();
         $pager = new Pagination(['totalCount' => $count, 'pageSize' => 2]);
-        $cevents = $models->offset($pager->offset)->limit($pager->limit)->all();
+        $cevents = $models->offset($pager->offset)->orderBy('ev_start_time')->limit($pager->limit)->all();//TODO
         return $this->render("overall", ['pager' => $pager, 'cevents' => $cevents]);
     }
 

@@ -66,6 +66,7 @@ class Admin extends BaseModel implements IdentityInterface
     {
         $id = Yii::$app->user->getId();
         $user=Admin::findOne(array('id'=>$id));
+        if(!$user) return null;
         return  $user->username;
         //return 'username';
     }
@@ -74,6 +75,7 @@ class Admin extends BaseModel implements IdentityInterface
     {
         $id = Yii::$app->user->getId();
         $user=Admin::findOne(array('id'=>$id));
+        if(!$user) return null;
         return  $user->department;
         //return 'username';
     }
@@ -82,6 +84,8 @@ class Admin extends BaseModel implements IdentityInterface
     {
         $id = Yii::$app->user->getId();
         $user=Admin::findOne(array('id'=>$id));
+        if(!$user) return null;
+
         return  $user->created_at;
         //return 'username';
     }

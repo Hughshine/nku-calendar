@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use common\models\TeacherModel;
+use frontend\models\Cevent;
 use Yii;
 use common\models\CeventModel;
 use common\models\CeventSearch;
@@ -99,20 +100,56 @@ class CeventController extends Controller
         $adminid=$model->ev_adminid;
         $userid = Yii::$app->user->getId();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ev_id]);
+        if ($model->load(Yii::$app->request->post()) && $model->save(false)) {
+            Yii::$app->session->setFlash('success', '修改成功');
+            return $this->redirect(['index']);
         } else {
             if($adminid!=$userid) {
                 Yii::$app->session->setFlash('info', '不能修改其他学院的活动！！');
-                return $this->render('view', [
+                return $this->render('index', [
                     'model' => $this->findModel($id),
                 ]);
             }
             else {
-                return $this->render('update', [
+                return $this->renderAjax('update', [
                     'model' => $model, 'teacher' => $teacher,
                 ]);
             }
+        }
+    }
+
+    public function actionJsonCalendar($start=NULL,$end=NULL,$_=NULL){
+        try {
+
+            $user = Yii::$app->user;
+            if ($user->isGuest)
+                return;
+
+            $userid = $user->id;
+
+            $cevents = Cevent::findAll(['ev_adminid' => $userid]);
+
+            $events = array();
+            foreach ($cevents as $cevent)
+            {
+                $Event = new \yii2fullcalendar\models\Event();
+                $Event->id = $cevent->ev_id;
+                $Event->className = 'inst-event';
+                $Event->title = $cevent->ev_title;
+                $Event->start = $cevent->ev_start_time;
+                $Event->end = $cevent->ev_end_time;
+                $Event->color = StudentEventController::NANKAI_PURPLE;
+                $Event->allDay = $cevent->all_day;
+                $events[] = $Event;
+            }
+
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            Yii::$app->response->data  =  $events;//Json::encode($events);
+//        header('Content-type: application/json');
+//        echo ;
+//        Yii::$app->end();
+        }catch (\Exception $e) {
+            Yii::$app->session->setFlash('error', $e->getMessage());
         }
     }
 
@@ -174,39 +211,4 @@ class CeventController extends Controller
         }
     }
 
-    public function actionJsonCalendar($start=NULL,$end=NULL,$_=NULL){
-        try {
-
-            $user = Yii::$app->user;
-            if ($user->isGuest)
-                return;
-
-            $userid = $user->id;
-
-            $c_participations = Participation::findAll(['user_id' => $userid, 'op1_status' => 1]);
-
-            $events = array();
-            foreach ($c_participations as $c)
-            {
-                $cevent = InstitutionEvent::findOne(['ev_id' => $c->ev_id]);
-                $Event = new \yii2fullcalendar\models\Event();
-                $Event->id = $cevent->ev_id;
-                $Event->className = 'inst-event';
-                $Event->title = $cevent->ev_title;
-                $Event->start = $cevent->ev_start_time;
-                $Event->end = $cevent->ev_end_time;
-                $Event->color = StudentEventController::NANKAI_PURPLE;
-                $Event->allDay = $cevent->all_day;
-                $events[] = $Event;
-            }
-
-            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-            Yii::$app->response->data  =  $events;//Json::encode($events);
-//        header('Content-type: application/json');
-//        echo ;
-//        Yii::$app->end();
-        }catch (\Exception $e) {
-            Yii::$app->session->setFlash('error', $e->getMessage());
-        }
-    }
 }
