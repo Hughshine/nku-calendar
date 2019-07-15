@@ -77,7 +77,8 @@ class CeventController extends Controller
         $model = new CeventModel();
         $teacher=TeacherModel::getAllTea();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ev_id]);
+            Yii::$app->session->setFlash('success', '创建成功');
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,'teacher'=>$teacher,

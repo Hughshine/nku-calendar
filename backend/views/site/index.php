@@ -152,21 +152,21 @@ EOF;
 
 
         ?>
-        <style>
-            .left {
-                float: left;
-                margin-top: 50px;
-                width: 150px;
-                position: fixed;
-                /*height: 300px;*/
-            }
-            .right {
-                margin-left: 210px;
-                /*max-height: 600px;*/
-            }
-        </style>
+<!--        <style>-->
+<!--            .left {-->
+<!--                float: left;-->
+<!--                margin-top: 50px;-->
+<!--                width: 150px;-->
+<!--                position: fixed;-->
+<!--                /*height: 300px;*/-->
+<!--            }-->
+<!--            .right {-->
+<!--                margin-left: 210px;-->
+<!--                /*max-height: 600px;*/-->
+<!--            }-->
+<!--        </style>-->
         <div>
-            <?= CustomEventsWidget::widget(); ?>
+<!--            --><?//= CustomEventsWidget::widget(); ?>
             <!--            <div class="left" id="external-events">-->
             <!--                <h4>日常任务</h4>-->
             <!--                <div class="fc-event ui-draggable ui-draggable-handle">My Event 1</div>-->
@@ -180,17 +180,17 @@ EOF;
             <!--                </p>-->
             <!--            </div>-->
 
-            <div class="right">
+            <div>
                 <?= yii2fullcalendar\yii2fullcalendar::widget(array(
                     'clientOptions' => [
                         'selectable' => true,
                         'selectHelper' => true,
                         'droppable' => true,
 //                        'editable' => true,
-                        'drop' => new JsExpression($JSDropEvent),
-                        'eventDrop' => new JsExpression($JsEventDrop),
+//                        'drop' => new JsExpression($JSDropEvent),
+//                        'eventDrop' => new JsExpression($JsEventDrop),
                         'firstDay' => 7,
-                        'dayClick'=> new JsExpression($dayClick),
+//                        'dayClick'=> new JsExpression($dayClick),
 //                    'select' => new JsExpression($JSCode),
                         'eventClick' => new JsExpression($JSEventClick),
                         'defaultDate' => date('Y-m-d')

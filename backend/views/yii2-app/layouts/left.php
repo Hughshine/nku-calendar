@@ -40,6 +40,7 @@ use common\models\User;
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => '南开大学百年校庆活动', 'options' => ['class' => 'header']],
+                    ['label' => '学院日程', 'icon' => 'file-code-o', 'url' => ['site/index']],
                     ['label' => '发布活动', 'icon' => 'file-code-o', 'url' => ['cevent/create']],
                     ['label' => '查看活动列表', 'icon' => 'dashboard', 'url' => ['/cevent']],
                     ['label' => '管理留言', 'icon' => 'feeds', 'url' => ['/feeds']],
