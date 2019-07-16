@@ -1,5 +1,12 @@
 <?php
-
+/**
+ *
+ * Team:
+ * Coding by: liruifeng
+ * Time:
+ * function: 首页留言的管理，对应create方法
+ *
+ */
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */

@@ -7,7 +7,6 @@
  * Version 1.0.0
  *
  */
-
 (function($) {
     $.fn.ClassyCountdown = function(options, callback) {
         var element = $(this);

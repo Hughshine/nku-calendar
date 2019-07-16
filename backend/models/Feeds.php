@@ -1,5 +1,13 @@
 <?php
 
+/**
+ *
+ * Team:
+ * Coding by: liruifeng
+ * Time:
+ * function: 首页留言的管理
+ *
+ */
 namespace backend\models;
 
 use Yii;

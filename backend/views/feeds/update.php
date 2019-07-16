@@ -1,5 +1,13 @@
 <?php
 
+/**
+ *
+ * Team:
+ * Coding by: liruifeng
+ * Time:
+ * function: 首页留言的后台展示，对应update
+ *
+ */
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
