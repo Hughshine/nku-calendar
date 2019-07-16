@@ -1,4 +1,3 @@
 # NKU学生日程管理系统
 
-> Yii2 
-> nothing here QwQ
+see everything at our [wiki](https://github.com/Hughshine/nku-calendar/wiki
