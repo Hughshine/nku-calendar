@@ -41,8 +41,7 @@ use common\models\User;
                     ['label' => '南开大学百年校庆活动', 'options' => ['class' => 'header']],
                     ['label' => '个人活动日历', 'icon' => 'file-code-o', 'url' => ['site/main']],
                     ['label' => '院校活动总览', 'icon' => 'dashboard', 'url' => ['cevent/overall']],
-                    ['label' => '祝福南开', 'icon' => 'dashboard', 'url' => 'http://localhost/nku-calendar/frontend/web/index.php?r=site/index#comment
-'],
+                    ['label' => '祝福南开', 'icon' => 'dashboard', 'url' => 'index.php?r=site#comment'],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                 ],
             ]

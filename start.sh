@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 # Unsafe auto-deploy script.
+if ! [ -x "$(command -v php)" ]; then
+  echo 'Error: php is not installed.' >&2
+  exit 1
+fi
+
+if ! [ -x "$(command -v mysql)" ]; then
+  echo 'Error: mysql is not installed.' >&2
+  exit 1
+fi
+
 user=root
 password="default"
 if [ -n "$1" ]; then
@@ -45,7 +55,7 @@ return [
     ],
 ];
 EOF
-) > test.txt
+) > ./common/main-local.conf
 
 
 echo COMPOSER UPDATE
