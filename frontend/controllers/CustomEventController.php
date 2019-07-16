@@ -70,6 +70,10 @@ class CustomEventController extends Controller
             return null;
         }
         $model = new CustomEvent();
+        if($model->ev_color == NULL)
+        {
+            $model->ev_color = 0;
+        }
 
         if ($model->load(Yii::$app->request->post()) ) {
             $model->ev_userid = $user->getId();
@@ -77,7 +81,8 @@ class CustomEventController extends Controller
             {
                 return $this->redirect(['/site/main']);
             }
-            return '<div>wrong</div>';
+            Yii::$app->session->setFlash('error','创建失败');
+            return null;
         }
 
         return $this->renderAjax('create', [

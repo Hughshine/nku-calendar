@@ -55,9 +55,21 @@ return [
     ],
 ];
 EOF
-) > ./common/main-local.conf
+) > ./common/config/main-local.php
 
+if ! [ -x "$(command -v composer)" ]; then
+  echo 'Error: mysql is not installed.' >&2
+  exit 1
+else
+    curl -sS https://getcomposer.org/installer | php
+    mv composer.phar /usr/local/bin/composer
+fi
+# composer 全局安装
 
 echo COMPOSER UPDATE
+# 更改镜像源为aliyun
+composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+# composer install
 composer install
+# composer update
 composer update
