@@ -577,7 +577,7 @@ AppAsset::register($this);
                 <a class="portfolio-item" href="#">
             <span class="caption">
               <span class="caption-content">
-                <h2>Stationary</h2>
+                <h2>李瑞峰</h2>
                 <p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p>
               </span>
             </span>
@@ -588,7 +588,7 @@ AppAsset::register($this);
                 <a class="portfolio-item" href="#">
             <span class="caption">
               <span class="caption-content">
-                <h2>Ice Cream</h2>
+                <h2>李煦阳</h2>
                 <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
               </span>
             </span>
@@ -599,7 +599,7 @@ AppAsset::register($this);
                 <a class="portfolio-item" href="#">
             <span class="caption">
               <span class="caption-content">
-                <h2>Strawberries</h2>
+                <h2>李泓萱</h2>
                 <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
               </span>
             </span>
@@ -610,7 +610,7 @@ AppAsset::register($this);
                 <a class="portfolio-item" href="#">
             <span class="caption">
               <span class="caption-content">
-                <h2>Workspace</h2>
+                <h2>王新元</h2>
                 <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
               </span>
             </span>

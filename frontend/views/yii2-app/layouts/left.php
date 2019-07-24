@@ -42,6 +42,9 @@ use common\models\User;
                     ['label' => '个人活动日历', 'icon' => 'file-code-o', 'url' => ['site/main']],
                     ['label' => '院校活动总览', 'icon' => 'dashboard', 'url' => ['cevent/overall']],
                     ['label' => '祝福南开', 'icon' => 'dashboard', 'url' => 'index.php?r=site#comment'],
+                    ['label' => '作业模块', 'options' => ['class' => 'header']],
+                    ['label' => '团队作业', 'icon' => 'dashboard', 'url' => ['homework/team']],
+                    ['label' => '个人作业', 'icon' => 'dashboard', 'url' => ['homework/person']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                 ],
             ]
