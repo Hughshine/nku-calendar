@@ -578,7 +578,7 @@ AppAsset::register($this);
             <span class="caption">
               <span class="caption-content">
                 <h2>李瑞峰</h2>
-                <p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p>
+                <p class="mb-0">这个人还没想好放什么图片！</p>
               </span>
             </span>
                     <img class="img-fluid" src="img/portfolio-1.jpg" alt="">
@@ -589,7 +589,7 @@ AppAsset::register($this);
             <span class="caption">
               <span class="caption-content">
                 <h2>李煦阳</h2>
-                <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
+                <p class="mb-0">这个人也没想好放什么图片！</p>
               </span>
             </span>
                     <img class="img-fluid" src="img/portfolio-2.jpg" alt="">
@@ -600,21 +600,21 @@ AppAsset::register($this);
             <span class="caption">
               <span class="caption-content">
                 <h2>李泓萱</h2>
-                <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
+                <p class="mb-0">这个人同样没想好放什么图片！</p>
               </span>
             </span>
                     <img class="img-fluid" src="img/portfolio-3.jpg" alt="">
                 </a>
             </div>
-            <div class="col-lg-6">
+           <div class="col-lg-6">
                 <a class="portfolio-item" href="#">
             <span class="caption">
               <span class="caption-content">
                 <h2>王新元</h2>
-                <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
+                <p class="mb-0">这个人一样没想好放什么图片！</p>
               </span>
             </span>
-                    <img class="img-fluid" src="img/portfolio-4.jpg" alt="">
+                    <img class="img-fluid" src="img/portfolio-1.jpg" alt="">
                 </a>
             </div>
         </div>

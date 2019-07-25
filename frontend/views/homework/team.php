@@ -25,7 +25,7 @@
     <a href="./data/team/用户手册.pdf" download="用户手册.pdf" ><span style="font-size:24px;">PDF下载&nbsp;&nbsp;&nbsp;</span></a><br>
 
     <span style="font-size:24px;">5.项目展示PPT:</span><br>
-    <a href="./data/team/项目展示.ppt" download="项目展示.ppt" ><span style="font-size:24px;">PPT下载&nbsp;&nbsp;&nbsp;</span></a><br>
+    <a href="./data/team/哈啰沃德小组展示.pptx" download="哈啰沃德小组展示.pptx" ><span style="font-size:24px;">PPT下载&nbsp;&nbsp;&nbsp;</span></a><br>
 
     <span style="font-size:24px;">6.源码:</span><br>
     <a href="https://github.com/Hughshine/nku-calendar/wiki/%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3" ><span style="font-size:24px;">github地址</span></a><br>
