@@ -10,25 +10,30 @@
 <p>
     <br />
     <span style="font-size:24px;">1.需求文档:</span><br>
-    <a href="https://github.com/Hughshine/nku-calendar/wiki/%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3" ><span style="font-size:24px;">PDF下载&nbsp;&nbsp;&nbsp;</span></a>
-    <a href="https://github.com/Hughshine/nku-calendar/wiki/%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3" ><span style="font-size:24px;">wiki查看</span><br /></a>
+    <a href="./data/team/需求文档.pdf" download="需求文档.pdf" ><span style="font-size:24px;">PDF下载&nbsp;&nbsp;&nbsp;</span></a>
+    <a href="https://github.com/Hughshine/nku-calendar/wiki/%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3" ><span style="font-size:24px;">wiki查看</span><br /></a>
+
     <span style="font-size:24px;">2.设计文档:</span><br>
-    <a href="https://github.com/Hughshine/nku-calendar/wiki/%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3" ><span style="font-size:24px;">PDF下载&nbsp;&nbsp;&nbsp;</span></a>
-    <a href="https://github.com/Hughshine/nku-calendar/wiki/%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3" ><span style="font-size:24px;">wiki</span><br /></a>
+    <a href="./data/team/设计文档.pdf" download="设计文档.pdf" ><span style="font-size:24px;">PDF下载&nbsp;&nbsp;&nbsp;</span></a>
+    <a href="https://github.com/Hughshine/nku-calendar/wiki/%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3" ><span style="font-size:24px;">wiki查看</span><br /></a>
+
     <span style="font-size:24px;">3.实现文档:</span><br>
-    <a href="https://github.com/Hughshine/nku-calendar/wiki/%E5%AE%9E%E7%8E%B0%E6%96%87%E6%A1%A3" ><span style="font-size:24px;">PDF下载&nbsp;&nbsp;&nbsp;</span></a>
-    <a href="https://github.com/Hughshine/nku-calendar/wiki/%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3" ><span style="font-size:24px;">wiki</span><br /></a>
+    <a href="./data/team/实现文档.pdf" download="实现文档.pdf" ><span style="font-size:24px;">PDF下载&nbsp;&nbsp;&nbsp;</span></a>
+    <a href="https://github.com/Hughshine/nku-calendar/wiki/%E5%AE%9E%E7%8E%B0%E6%96%87%E6%A1%A3" ><span style="font-size:24px;">wiki查看</span><br /></a>
+
     <span style="font-size:24px;">4.用户手册:</span><br>
-    <a href="https://github.com/Hughshine/nku-calendar/wiki/%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C" ><span style="font-size:24px;">PDF下载&nbsp;&nbsp;&nbsp;</span></a>
-    <a href="https://github.com/Hughshine/nku-calendar/wiki/%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3" ><span style="font-size:24px;">wiki</span><br /></a>
+    <a href="./data/team/用户手册.pdf" download="用户手册.pdf" ><span style="font-size:24px;">PDF下载&nbsp;&nbsp;&nbsp;</span></a><br>
+
     <span style="font-size:24px;">5.项目展示PPT:</span><br>
-    <a href="https://github.com/Hughshine/nku-calendar/wiki/%E9%A1%B9%E7%9B%AE%E5%B1%95%E7%A4%BA" ><span style="font-size:24px;">下载&nbsp;&nbsp;&nbsp;</span></a>
-    <a href="https://github.com/Hughshine/nku-calendar/wiki/%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3" ><span style="font-size:24px;">wiki</span><br /></a>
+    <a href="./data/team/项目展示.ppt" download="项目展示.ppt" ><span style="font-size:24px;">PPT下载&nbsp;&nbsp;&nbsp;</span></a><br>
+
     <span style="font-size:24px;">6.源码:</span><br>
-    <a href="https://github.com/Hughshine/nku-calendar/wiki/%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3" ><span style="font-size:24px;">github</span></a><br>
+    <a href="https://github.com/Hughshine/nku-calendar/wiki/%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3" ><span style="font-size:24px;">github地址</span></a><br>
+
     <span style="font-size:24px;">7.数据库文件:</span><br>
-    <a href="https://github.com/Hughshine/nku-calendar/tree/master/db" ><span style="font-size:24px;">PDF下载&nbsp;&nbsp;&nbsp;</span></a><br>
+    <a href="./data/install.sql" download="install.sql" ><span style="font-size:24px;">PDF下载&nbsp;&nbsp;&nbsp;</span></a><br>
+
     <span style="font-size:24px;">8.部署文档:</span><br>
-    <a href="https://github.com/Hughshine/nku-calendar/wiki/%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3" ><span style="font-size:24px;">PDF下载&nbsp;&nbsp;&nbsp;</span></a>
-    <a href="https://github.com/Hughshine/nku-calendar/wiki/%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3" ><span style="font-size:24px;">wiki</span><br /></a>
+   <a href="./data/team/部署文档.pdf" download="部署文档.pdf" ><span style="font-size:24px;">PDF下载&nbsp;&nbsp;&nbsp;</span></a>
+    <a href="https://github.com/Hughshine/nku-calendar/wiki/%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3" ><span style="font-size:24px;">wiki查看</span><br /></a>
 </p>
