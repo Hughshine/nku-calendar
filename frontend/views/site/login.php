@@ -12,20 +12,20 @@ use yii\helpers\Url;
 $this->title = '登录';
 $this->params['breadcrumbs'][] = $this->title;
 
-$events = array();
-//Testing
-$Event = new \yii2fullcalendar\models\Event();
-$Event->id = 1;
-$Event->title = 'Testing';
-$Event->start = date('Y-m-d\Th:m:s\Z');
-$events[] = $Event;
-
-$Event = new \yii2fullcalendar\models\Event();
-$Event->id = 2;
-$Event->title = 'Testing';
-$Event->start = date('Y-m-d\Th:m:s\Z',strtotime('tomorrow 6am'));
-$events[] = $Event;
-?>
+//$events = array();
+////Testing
+//$Event = new \yii2fullcalendar\models\Event();
+//$Event->id = 1;
+//$Event->title = 'Testing';
+//$Event->start = date('Y-m-d\Th:m:s\Z');
+//$events[] = $Event;
+//
+//$Event = new \yii2fullcalendar\models\Event();
+//$Event->id = 2;
+//$Event->title = 'Testing';
+//$Event->start = date('Y-m-d\Th:m:s\Z',strtotime('tomorrow 6am'));
+//$events[] = $Event;
+//?>
 <div class="login-box">
     <div class="login-logo">
         <a href="#"><b><?= Html::encode($this->title) ?></b></a>
